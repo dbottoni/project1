@@ -5,8 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Document</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
+  <link href="./assets/css/highlight.css" rel="stylesheet">
+  <link href="./assets/css/documentation.min.css" rel="stylesheet">
+  <link href="./assets/css/bulma-carousel.min.css" rel="stylesheet">
+
+  <title>Eventbrite 2.0</title>
 </head>
 
 <body>
@@ -20,33 +24,22 @@
         <li><a href="#about">About Eventbrite 2.0</a></li>
         <li><a href="#contact-us">Contact Us</a></li>
       </ul>
-      <!-- <img src="./assets/images/party.jpeg"> -->
-
-      
-
     </nav>
-    
     </header>
 
     <!-- Search Bar/Calendar Feature/ -->
-    <div class="searchBar">
-    <div class="field is-grouped" id="input-field">
-      <p class="control is-expanded">
-        <input class="input" type="text" placeholder="Search For Events">
-      </p>
-      <p class="control">
-        <a class="button is-info">
-          Search
-        </a>
-      </p>
-    </div>
-    </div>
-
-    
+    <section id="#top-events">
+      <div class="input-field">
+        <div>
+          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+          <button type="submit">Search</button>
+        </div>
+      </div>
+  </section>
 
     <!-- Top Events Section -->
     <section id="#top-events">
-    <div class="topEvents" id="topevents">
+    <div>
 
 
 
@@ -61,7 +54,7 @@
 
     <!-- Addition suggersted events -->
     <section id="additional">
-    <div class="additionalEvents" class="additionalEvents">
+    <div>
 
 
 
@@ -69,29 +62,132 @@
 
 
 
+<!--Start carousel-->
+ 
+<section class="section">
+  <div id="slider1">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-16by9  is-covered">
+          <img src="https://images.unsplash.com/photo-1550921082-c282cdc432d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            alt="">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="item__title">
+          Mon titre 1
+        </div>
+        <div class="item__description">
+          Ici une petite description pour tester le slider
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-16by9  is-covered">
+          <img src="https://images.unsplash.com/photo-1550945771-515f118cef86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+            alt="">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="item__title">
+          Mon titre 2
+        </div>
+        <div class="item__description">
+          Ici une petite description pour tester le slider
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-16by9  is-covered">
+          <img src="https://images.unsplash.com/photo-1550971264-3f7e4a7bb349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            alt="">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="item__title">
+          Mon titre 3
+        </div>
+        <div class="item__description">
+          Ici une petite description pour tester le slider
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-16by9  is-covered">
+          <img src="https://images.unsplash.com/photo-1550931937-2dfd45a40da0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            alt="">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="item__title">
+          Mon titre 4
+        </div>
+        <div class="item__description">
+          Ici une petite description pour tester le slider
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-16by9 is-covered">
+          <img src="https://images.unsplash.com/photo-1550930516-af8b8cc4f871?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+            alt="">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="item__title">
+          Mon titre 5
+        </div>
+        <div class="item__description">
+          Ici une petite description pour tester le slider
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <figure class="image video-container is-16by9">
+          <iframe type="text/html" src="https://www.youtube.com/embed/H0v773vKS_U" frameborder="0"></iframe>
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="item__title">
+          Mon titre 6
+        </div>
+        <div class="item__description">
+          Ici une petite description pour tester le slider
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/doc.js"></script>
+  <script src="./assets/js/main.js"></script>
+      <!--End carousel-->
     </div>
   </section>
 
     <!-- About Us Section -->
     <section id="#about">
-    <div class="about-us" id="abouUs">
-
-
-
-
-
-
-
-
+    <div>
 
     </div>
     </section>
 
     <!-- Footer/Contact Us Section -->
     <section id="#contact-us">
-    <footer class="contactUs" id="reachUs">
+    <footer>
       <div>
         <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Sequi aliquid tempore ducimus quas nemo, sit ad quibusdam et quam earum ipsam dolor amet rerum enim obcaecati, harum at!</P>
         <ul>

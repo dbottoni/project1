@@ -1,0 +1,7 @@
+index[1-9].html
+*.json
+.DS_Store
+/sass
+/node_modules
+/bulma-carousel
+/css
