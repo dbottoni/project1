@@ -6,11 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
-  <link href="./assets/css/highlight.css" rel="stylesheet">
-  <link href="./assets/css/documentation.min.css" rel="stylesheet">
-  <link href="./assets/css/bulma-carousel.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-
   <title>Eventbrite 2.0</title>
 </head>
 
@@ -61,112 +58,27 @@
 
 
 <!--Start carousel-->
-
 <section class="section">
-  <div id="slider1">
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-16by9  is-covered">
-          <img src="https://images.unsplash.com/photo-1550921082-c282cdc432d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-            alt="">
-        </figure>
+  <div class="container">
+    <!-- Start Carousel -->
+    <div id="carousel-demo" class="carousel">
+      <div class="item-1">
+        <!-- Slide Content -->
+        <p>Add image here</p>
       </div>
-      <div class="card-content">
-        <div class="item__title">
-          Mon titre 1
-        </div>
-        <div class="item__description">
-          Ici une petite description pour tester le slider
-        </div>
+      <div class="item-2">
+        <!-- Slide Content -->
+        <p>add image here</p>
       </div>
-    </div>
-
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-16by9  is-covered">
-          <img src="https://images.unsplash.com/photo-1550945771-515f118cef86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-            alt="">
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="item__title">
-          Mon titre 2
-        </div>
-        <div class="item__description">
-          Ici une petite description pour tester le slider
-        </div>
+      <div class="item-3">
+        <!-- Slide Content -->
+        <p>add image here</p>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-16by9  is-covered">
-          <img src="https://images.unsplash.com/photo-1550971264-3f7e4a7bb349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-            alt="">
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="item__title">
-          Mon titre 3
-        </div>
-        <div class="item__description">
-          Ici une petite description pour tester le slider
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-16by9  is-covered">
-          <img src="https://images.unsplash.com/photo-1550931937-2dfd45a40da0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-            alt="">
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="item__title">
-          Mon titre 4
-        </div>
-        <div class="item__description">
-          Ici une petite description pour tester le slider
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-16by9 is-covered">
-          <img src="https://images.unsplash.com/photo-1550930516-af8b8cc4f871?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-            alt="">
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="item__title">
-          Mon titre 5
-        </div>
-        <div class="item__description">
-          Ici une petite description pour tester le slider
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-image">
-        <figure class="image video-container is-16by9">
-          <iframe type="text/html" src="https://www.youtube.com/embed/H0v773vKS_U" frameborder="0"></iframe>
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="item__title">
-          Mon titre 6
-        </div>
-        <div class="item__description">
-          Ici une petite description pour tester le slider
-        </div>
-      </div>
-    </div>
-
+    <!-- End Carousel -->
   </div>
 </section>
+
 
       <!--End carousel-->
     </div>
@@ -192,9 +104,13 @@
     </footer>
     </section>
 
-<script src="./bulma-carousel/demo/assets/js/doc.js"></script>
-<script src="./bulma-carousel/demo//assets/js/bulma-carousel.min.js"></script>
-<script src="./bulma-carousel/demo//assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+    bulmaCarousel.attach('#carousel-demo', {
+      slidesToScroll: 1,
+      slidesToShow: 4
+    });
+    </script>
   
 </body>
 </html>
