@@ -5,8 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Document</title>
+  <title>Eventbrite 2.0</title>
 </head>
 
 <body>
@@ -20,33 +22,22 @@
         <li><a href="#about">About Eventbrite 2.0</a></li>
         <li><a href="#contact-us">Contact Us</a></li>
       </ul>
-      <!-- <img src="./assets/images/party.jpeg"> -->
-
-      
-
     </nav>
-    
     </header>
 
     <!-- Search Bar/Calendar Feature/ -->
-    <div class="searchBar">
-    <div class="field is-grouped" id="input-field">
-      <p class="control is-expanded">
-        <input class="input" type="text" placeholder="Search For Events">
-      </p>
-      <p class="control">
-        <a class="button is-info">
-          Search
-        </a>
-      </p>
-    </div>
-    </div>
-
-    
+    <section id="#top-events">
+      <div class="input-field">
+        <div>
+          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+          <button type="submit">Search</button>
+        </div>
+      </div>
+  </section>
 
     <!-- Top Events Section -->
     <section id="#top-events">
-    <div class="topEvents" id="topevents">
+    <div>
 
 
 
@@ -61,38 +52,46 @@
 
     <!-- Addition suggersted events -->
     <section id="additional">
-    <div class="additionalEvents" class="additionalEvents">
+    <div>
 
 
 
 
+<!--Start carousel-->
+<section class="section">
+  <div class="container">
+    <!-- Start Carousel -->
+    <div id="carousel-demo" class="carousel">
+      <div class="item-1">
+        <!-- Slide Content -->
+        <p>Add image here</p>
+      </div>
+      <div class="item-2">
+        <!-- Slide Content -->
+        <p>add image here</p>
+      </div>
+      <div class="item-3">
+        <!-- Slide Content -->
+        <p>add image here</p>
+      </div>
+    </div>
+    <!-- End Carousel -->
+  </div>
+</section>
 
 
-
-
-
+      <!--End carousel-->
     </div>
   </section>
 
     <!-- About Us Section -->
     <section id="#about">
-    <div class="about-us" id="abouUs">
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae numquam possimus sint expedita placeat repellat nostrum, aut iusto alias consequatur est voluptatum reprehenderit accusantium a recusandae laboriosam cupiditate eum eius? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus odio sunt, libero blanditiis laboriosam, aliquid dolor dignissimos architecto nemo ducimus similique sint hic vel dicta neque. Qui iste blanditiis eum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet officiis accusamus reiciendis, tempora ducimus tempore velit doloribus consectetur quidem soluta repellendus, labore et! Iusto quaerat doloribus, ratione fuga veritatis vitae.</p>
-
-
-
-
-
-
-
-
-
-    </div>
-    </section>
-
+      <div class="about-us" id="abouUs">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae numquam possimus sint expedita placeat repellat nostrum, aut iusto alias consequatur est voluptatum reprehenderit accusantium a recusandae laboriosam cupiditate eum eius? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus odio sunt, libero blanditiis laboriosam, aliquid dolor dignissimos architecto nemo ducimus similique sint hic vel dicta neque. Qui iste blanditiis eum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet officiis accusamus reiciendis, tempora ducimus tempore velit doloribus consectetur quidem soluta repellendus, labore et! Iusto quaerat doloribus, ratione fuga veritatis vitae.</p>
+  
     <!-- Footer/Contact Us Section -->
     <section id="#contact-us">
-    <footer class="contactUs" id="reachUs">
+    <footer>
       <div>
         <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Sequi aliquid tempore ducimus quas nemo, sit ad quibusdam et quam earum ipsam dolor amet rerum enim obcaecati, harum at!</P>
         <ul>
@@ -104,6 +103,14 @@
       </div>
     </footer>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+    bulmaCarousel.attach('#carousel-demo', {
+      slidesToScroll: 1,
+      slidesToShow: 4
+    });
+    </script>
   
 </body>
 </html>
