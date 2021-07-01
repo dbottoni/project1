@@ -19,8 +19,6 @@ if (element && element.bulmaCarousel) {
 }
 
 
-
-
 var searchButton = document.getElementById('searchBtn');
 var inputValue = document.getElementById('searchBox');
 var temp = document.getElementById('tempToday');
