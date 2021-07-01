@@ -26,6 +26,6 @@
 * Ticket Master API
 
 ### Mock Up Screenshots
-![image](https://user-images.githubusercontent.com/72705457/124143040-c7dc1a80-da58-11eb-9241-7b1b351c2f24.png)
+![image](https://user-images.githubusercontent.com/72705457/124143184-e7734300-da58-11eb-937b-65fcc9500257.png)
 
 ![image](https://user-images.githubusercontent.com/72705457/124143053-cb6fa180-da58-11eb-9e10-6cba2f38ee52.png)
