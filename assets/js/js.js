@@ -54,18 +54,20 @@ var temp = document.getElementById('tempToday');
 // https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt
 
 
-searchBtn.addEventListener('click', weatherAPI); //Made the fetch into its own fn
+searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
 
 
-  function weatherAPI() {
+  function eventAPI() {
 
     var apiKey = "X9wkE7SABLcE6COZMZEWPLuGebirGPFt";
     var zipCode = "";
     var keyword = "";
     var start = "";
     var city = "";
-    var maxResults = "2";
+    var maxResults = "3";
     
+    var deleteContainer = document.getElementById("results");
+        deleteContainer.remove(); // removes the container with the previous results
 
     console.log(searchButton);
 
@@ -87,9 +89,13 @@ searchBtn.addEventListener('click', weatherAPI); //Made the fetch into its own f
             var eventName = eventIndexed.name;
 
             //let eventNames = JSON.stringify(eventName)
-            console.log(eventName)
+            //console.log(eventName)
             //document.getElementById("event-0").innerHTML = eventName;
             
+            var mainContainerEvents = document.getElementById("results-main");
+            var subContainerCreate = document.createElement("div");
+            subContainerCreate.setAttribute("id", "results");
+            mainContainerEvents.appendChild(subContainerCreate);
             var containerEvents = document.getElementById("results");
             var resultContainerCreate = document.createElement("p");
             resultContainerCreate.setAttribute("id", "event-results" + index);
