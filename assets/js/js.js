@@ -20,7 +20,7 @@ if (element && element.bulmaCarousel) {
 
 
 var searchButton = document.getElementById('searchBtn');
-var inputValue = document.getElementById('searchBox');
+var inputValue = document.getElementById('input-box');
 var temp = document.getElementById('tempToday');
 
 
@@ -54,23 +54,42 @@ var temp = document.getElementById('tempToday');
 // https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt
 
 
-searchBtn.addEventListener('click',function(){
+searchBtn.addEventListener('click', weatherAPI); //Made the fetch into its own fn
 
-  fetch (
-    'https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt')
-    .then(response => response.json())
-    .then(data => {
-      var nameValue = data['name'];
-      console.log(nameValue);
-      
 
-      var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
-    //   console.log(newEvent);
+  function weatherAPI() {
 
+    var apiKey = "X9wkE7SABLcE6COZMZEWPLuGebirGPFt";
+    var zipCode = "";
+
+    console.log(searchButton);
+
+    console.log($(inputValue).val()); //gets input value from input text box added the script in html for jquery
+
+      fetch (
+        'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey)
+        .then(response => response.json())
+        .then(data => {
+          var embedded = data['_embedded'];
+          
+          for (let i = 0; i < 5; i++) {
+
+            var events = embedded.events[i];
+            console.log(data);
+            console.log(embedded);
+            console.log(events)
+
+            let getEvents = JSON.stringify(events)
+
+         
+            document.getElementById("event-0").innerHTML = getEvents;
+          }
+          var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
+        //   console.log(newEvent);
 
 
         })
-});
+  };
 
 
 

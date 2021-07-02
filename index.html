@@ -9,6 +9,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <title>Eventbrite 2.0</title>
 </head>
 
@@ -33,12 +34,13 @@
     <section id="#top-events">
       <div class="input-field">
         <div>
-          <input type="text" name="" id="autocomplete-input-weather" placeholder="Look up the weather">
-          <button id="searchBtn" type="submit">Search</button>
+          <input type="text" name="" id="input-box-weather" placeholder="zip code">
+          <button id="searchBtn-weather" type="submit">Search the weather</button>
         </div>
+        <p id="event-0"></p>
         <div>
-          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
-          <button type="submit">Search</button>
+          <input type="text" name="" id="input-box" placeholder="Search for Events">
+          <button id="searchBtn" type="submit">Search Events</button>
         </div>
       </div>
     </section>
