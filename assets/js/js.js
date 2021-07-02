@@ -67,7 +67,7 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
     var maxResults = "3";
     
     var deleteContainer = document.getElementById("results");
-        deleteContainer.remove(); // removes the container with the previous results
+        deleteContainer.remove(); // removes the container with the previous results id=results
 
     console.log(searchButton);
 
@@ -88,10 +88,7 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
             var eventIndexed = embedded.events[index];
             var eventName = eventIndexed.name;
 
-            //let eventNames = JSON.stringify(eventName)
-            //console.log(eventName)
-            //document.getElementById("event-0").innerHTML = eventName;
-            
+           //creates a container for each result
             var mainContainerEvents = document.getElementById("results-main");
             var subContainerCreate = document.createElement("div");
             subContainerCreate.setAttribute("id", "results");
@@ -105,22 +102,7 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
 
           })
 
-          /*for (let i = 0; i < 5; i++) {
-
-            var events = embedded.events[i];
-            var eventName = events.name;
-
-            console.log(data);
-            console.log(embedded);
-            console.log(events);
-            console.log(eventName)
-
-
-            //let eventNames = JSON.stringify(eventName)
-
-            document.getElementById("event-0").innerHTML = eventName;
-          }*/
-          var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
+         // var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
         //   console.log(newEvent);
 
 
