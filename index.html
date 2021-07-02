@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Document</title>
+  <title>Eventbrite 2.0</title>
 </head>
 
 <body>
@@ -20,15 +23,12 @@
         <li><a href="#about">About Eventbrite 2.0</a></li>
         <li><a href="#contact-us">Contact Us</a></li>
       </ul>
-      <!-- <img src="./assets/images/party.jpeg"> -->
-
-      
-
     </nav>
-    
+  </header>
     </header>
 
     <!-- Search Bar/Calendar Feature/ -->
+<<<<<<< HEAD
     <div class="searchBar">
     <div class="field is-grouped" id="input-field">
       <p class="control is-expanded">
@@ -45,14 +45,32 @@
     
 
     <!-- Top Events Section -->
+=======
+>>>>>>> a9a915bac9cef88f32ebe116b60caae1bc3fec14
     <section id="#top-events">
+      <div class="input-field">
+        <div>
+          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+          <button id="searchBtn" type="submit">Search</button>
+        </div>
+      </div>
+  </section>
+
+    <!-- Top Events Section -->
+
+    <section id="top-events">
     <div class="topEvents" id="topevents">
+    <section id="#top-events">
+    <div>
 
 
-
-
-
-
+  <!-- Search Bar/Calendar Feature/ -->
+  <section id="#top-events">
+    <div class="input-field">
+      <div>
+        <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+        <button type="submit">Search</button>
+      </div>
 
 
 
@@ -61,24 +79,44 @@
 
     <!-- Addition suggersted events -->
     <section id="additional">
-    <div class="additionalEvents" class="additionalEvents">
-
-
-
-
-
-
-
-
-
-    </div>
-  </section>
+    <!--Start carousel-->
+    <section class="section">
+      <div class="container">
+        <!-- Start Carousel -->
+        <div id="carousel-demo" class="carousel">
+          <div class="item-1">
+            <!-- Slide Content -->
+            <img src="./assets/images/party.jpeg" alt="concert">
+          </div>
+          <div class="item-2">
+            <!-- Slide Content -->
+            <img src="./assets/images/city.jpeg" alt="city night">
+          </div>
+          <div class="item-3">
+            <!-- Slide Content -->
+            <img src="./assets/images/beach.jpeg" alt="beach">
+          </div>
+          <div class="item-4">
+            <!-- Slide Content -->
+            <img src="./assets/images/guitar.jpeg" alt="guitar">
+          </div>
+          <div class="item-5">
+            <!-- Slide Content -->
+            <img src="./assets/images/plane.jpeg" alt="airplane">
+          </div>
+        </div>
+        <!-- End Carousel -->
+      </div>
+    </section>
 
     <!-- About Us Section -->
-    <section id="#about">
+
+    <section id="about">
     <div class="about-us" id="abouUs">
-
-
+      <h2>About Us</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae numquam possimus sint expedita placeat repellat nostrum, aut iusto alias consequatur est voluptatum reprehenderit accusantium a recusandae laboriosam cupiditate eum eius? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus odio sunt, libero blanditiis laboriosam, aliquid dolor dignissimos architecto nemo ducimus similique sint hic vel dicta neque. Qui iste blanditiis eum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet officiis accusamus reiciendis, tempora ducimus tempore velit doloribus consectetur quidem soluta repellendus, labore et! Iusto quaerat doloribus, ratione fuga veritatis vitae.</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur eligendi quibusdam nemo provident est architecto, quasi vel ex beatae et doloribus aspernatur eius sint, quod quas omnis deserunt aliquam unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos deleniti consectetur culpa voluptate pariatur officiis! Harum ipsum cupiditate sunt! Quae, consectetur voluptas! Vero delectus minus ratione qui fugit animi repudiandae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, accusamus molestiae. Eligendi sapiente id, sunt iusto autem quo harum impedit nobis vel amet odio maiores tempora, quae culpa, ea nostrum. lorem</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem labore aspernatur quod expedita architecto in iure molestias, cumque quia, alias perferendis? Praesentium eius reiciendis esse blanditiis aperiam perferendis optio. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis consequatur nulla inventore blanditiis, fugiat similique veritatis totam quam expedita, voluptates dolorem error vero adipisci id, assumenda magni vitae praesentium temporibus! lorem</p>
 
 
 
@@ -90,6 +128,7 @@
     </section>
 
     <!-- Footer/Contact Us Section -->
+<<<<<<< HEAD
     <section id="#contact-us">
     <footer class="contactUs" id="reachUs">
       <div>
@@ -105,5 +144,72 @@
     </section>
     
     <script src="assets/js/js.js"></script>
+=======
+    <section id="contact-us">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns, please click the following button and complete the form to reach out to us!</p>
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn" class="button is-info">Questions?</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Contact Us</h2>
+
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Enter Your Name">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Enter Email">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Questions or Concerns"></textarea>
+            </div>
+          </div>
+          
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-danger is-light">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Someone from our team will be reaching out to you within 24-48hrs after submitting your form.</p>
+          <p>Thank you.</p>
+        </div>
+        <div class="modal-footer">
+          <h3>Eventbrite 2.0</h3>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+    bulmaCarousel.attach('#carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 4
+    });
+    </script>
+  
+
+  <script src="./assets/js/js.js"></script>
+>>>>>>> a9a915bac9cef88f32ebe116b60caae1bc3fec14
 </body>
+
 </html>
