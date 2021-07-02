@@ -61,7 +61,7 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
 
     var apiKey = "X9wkE7SABLcE6COZMZEWPLuGebirGPFt";
     var zipCode = "";
-    var keyword = "";
+    var keyword = $(inputValue).val();
     var start = "";
     var city = "";
     var maxResults = "3";
@@ -69,13 +69,11 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
     var deleteContainer = document.getElementById("results");
         deleteContainer.remove(); // removes the container with the previous results id=results
 
-    console.log(searchButton);
-
     console.log($(inputValue).val()); //gets input value from input text box added the script in html for jquery
 
       fetch (
         'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey + 
-        "&keyword=" + keyword + "&postalCode=" + zipCode + "&startDateTime=" + start + "&city=" + city +
+        "&keyword=" + "'" + keyword + "'" + "&postalCode=" + zipCode + "&startDateTime=" + start + "&city=" + city +
         "&size=" + maxResults)
 
         .then(response => response.json())
