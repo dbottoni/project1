@@ -75,28 +75,28 @@ searchBtn.addEventListener('click', weatherAPI); //Made the fetch into its own f
         'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey + 
         "&keyword=" + keyword + "&postalCode=" + zipCode + "&startDateTime=" + start + "&city=" + city +
         "&size=" + maxResults)
+
         .then(response => response.json())
+
         .then(data => {
           var embedded = data['_embedded'];
-         // var events = embedded.events[i];
-           
-          /*embedded.events.forEach(function() {
-            console.log(embedded.events[i++])
-          });*/
 
           embedded.events.forEach((value, index, array) => {
             console.log(index);
             var eventIndexed = embedded.events[index];
             var eventName = eventIndexed.name;
-            
-
-
 
             //let eventNames = JSON.stringify(eventName)
             console.log(eventName)
-            document.getElementById("event-0").innerHTML = eventName;
-          
-          
+            //document.getElementById("event-0").innerHTML = eventName;
+            
+            var containerEvents = document.getElementById("results");
+            var resultContainerCreate = document.createElement("p");
+            resultContainerCreate.setAttribute("id", "event-results" + index);
+            containerEvents.appendChild(resultContainerCreate);
+            var nameTxt = "Event: " + (index + 1) + " "+ eventName + "</br>" + "URL: " + `${eventIndexed.url}`;
+            resultContainerCreate.innerHTML = nameTxt; 
+
           })
 
           /*for (let i = 0; i < 5; i++) {
