@@ -61,11 +61,11 @@ searchBtn.addEventListener('click',function(){
     .then(response => response.json())
     .then(data => {
       var nameValue = data['name'];
-      console.log(data);
+      console.log(nameValue);
       
 
       var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
-      console.log(newEvent);
+    //   console.log(newEvent);
 
 
 
