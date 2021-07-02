@@ -61,29 +61,59 @@ searchBtn.addEventListener('click', weatherAPI); //Made the fetch into its own f
 
     var apiKey = "X9wkE7SABLcE6COZMZEWPLuGebirGPFt";
     var zipCode = "";
+    var keyword = "";
+    var start = "";
+    var city = "";
+    var maxResults = "2";
+    
 
     console.log(searchButton);
 
     console.log($(inputValue).val()); //gets input value from input text box added the script in html for jquery
 
       fetch (
-        'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey)
+        'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey + 
+        "&keyword=" + keyword + "&postalCode=" + zipCode + "&startDateTime=" + start + "&city=" + city +
+        "&size=" + maxResults)
         .then(response => response.json())
         .then(data => {
           var embedded = data['_embedded'];
+         // var events = embedded.events[i];
+           
+          /*embedded.events.forEach(function() {
+            console.log(embedded.events[i++])
+          });*/
+
+          embedded.events.forEach((value, index, array) => {
+            console.log(index);
+            var eventIndexed = embedded.events[index];
+            var eventName = eventIndexed.name;
+            
+
+
+
+            //let eventNames = JSON.stringify(eventName)
+            console.log(eventName)
+            document.getElementById("event-0").innerHTML = eventName;
           
-          for (let i = 0; i < 5; i++) {
+          
+          })
+
+          /*for (let i = 0; i < 5; i++) {
 
             var events = embedded.events[i];
+            var eventName = events.name;
+
             console.log(data);
             console.log(embedded);
-            console.log(events)
+            console.log(events);
+            console.log(eventName)
 
-            let getEvents = JSON.stringify(events)
 
-         
-            document.getElementById("event-0").innerHTML = getEvents;
-          }
+            //let eventNames = JSON.stringify(eventName)
+
+            document.getElementById("event-0").innerHTML = eventName;
+          }*/
           var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
         //   console.log(newEvent);
 
