@@ -1,44 +1,4 @@
-<<<<<<< HEAD
-var searchEvent = document.querySelector('#tickets').value;
 
-var eventLocation = searchEvent;
-
-// var typeOfEvent = searchEvent;
-
-// var findBand = searchEvent;
-
-
-function getTickets () {
-     fetch(
-        'https://app.ticketmaster.com/discovery/v2/events.json?size=1&city=' + eventLocation +
-        'apikey=X9wkE7SABLcE6COZMZEWPLuGebi'
-    )
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(response){
-            console.log(response);
-
-        })
-}
-
-// function getTickets() {
-//     $.ajax({
-//     type:"GET",
-//     url:"https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt",
-//     async:true,
-//     dataType: "json",
-//     success: function(json) {
-//                 console.log(json);
-//                 // Parse the response.
-//                 // Do other things.
-               
-//              },
-//     error: function(xhr, status, err) {
-//                 // This time, we do not end up here!
-//              }
-//   });
-=======
 // Initialize all div with carousel class
 var carousels = bulmaCarousel.attach('.carousel');
 
@@ -88,34 +48,6 @@ var temp = document.getElementById('tempToday');
     
 //         })
 // });
-
-
-
-// Ticket Master API
-// https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt
-
-
-searchBtn.addEventListener('click',function(){
-
-  fetch (
-    'https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt')
-    .then(response => response.json())
-    .then(data => {
-      var nameValue = data['name'];
-      console.log(nameValue);
-      
-
-      var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
-    //   console.log(newEvent);
-
-
-
-        })
-});
-
-
-
-
 
 
 
@@ -348,5 +280,138 @@ window.onclick = function(event) {
 // 		console.log(state);
 // 	});
 // }
->>>>>>> a9a915bac9cef88f32ebe116b60caae1bc3fec14
+
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var searchButtonEl = document.getElementById('searchBtn');
+searchButtonEl.addEventListener('click', getTickets);
+
+function getTickets () {
+  var inputElement = document.getElementById('tickets');
+  console.log(inputElement.value);
+
+  var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+  fetch (api)
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+}
+
