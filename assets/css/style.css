@@ -13,8 +13,8 @@ header {
     background-size: cover;
     background-position: 40%;
     background-attachment: fixed;
-    background-image: url(../images/party.jpeg);
-    z-index: 100;
+    background-image: url(../images/concert.jpeg);
+    z-index: 999;
     height: 500px;
 }
 
@@ -24,6 +24,9 @@ header h1 {
     margin: 0;
     text-shadow: 0 0 10px;
     color: white;
+    position: sticky;
+    top: 20px;
+    
 }
 
 header a {
@@ -42,13 +45,14 @@ header nav {
 header nav ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between, inherit;
     align-items: center;
     list-style: none;
     margin: 0;
     font-weight: bold;
     color: white;
     font-size: 40px;
+    
 
 }
 
@@ -66,8 +70,8 @@ header nav ul li a:hover {
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .searchbar {
@@ -81,6 +85,11 @@ body {
 
 h2 {
     font-size: 40px;
+}
+
+img {
+  width: 100%;
+  height: 500px;
 }
 
 /* The Modal (background) */
