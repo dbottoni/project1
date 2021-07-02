@@ -15,6 +15,7 @@
 <body>
   <!-- Header/Nav Bar -->
   <header>
+    <div id="nav-box">
     <h1>Eventbrite 2.0</h1>
     <nav>
       <ul>
@@ -24,6 +25,7 @@
         <li><a href="#contact-us">Contact Us</a></li>
       </ul>
     </nav>
+  </div>
   </header>
     </header>
 
@@ -31,11 +33,15 @@
     <section id="#top-events">
       <div class="input-field">
         <div>
-          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+          <input type="text" name="" id="autocomplete-input-weather" placeholder="Look up the weather">
           <button id="searchBtn" type="submit">Search</button>
         </div>
+        <div>
+          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+          <button type="submit">Search</button>
+        </div>
       </div>
-  </section>
+    </section>
 
     <!-- Top Events Section -->
 
@@ -43,53 +49,49 @@
     <div class="topEvents" id="topevents">
     <section id="#top-events">
     <div>
-
-
-  <!-- Search Bar/Calendar Feature/ -->
-  <section id="#top-events">
-    <div class="input-field">
-      <div>
-        <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
-        <button type="submit">Search</button>
-      </div>
-
-
-
+      
+    </div> 
+    </section>
     </div>
-  </section>
+    </section>
 
     <!-- Addition suggersted events -->
     <section id="additional">
     <!--Start carousel-->
-    <section class="section">
+    <section class="section-carousel">
       <div class="container">
         <!-- Start Carousel -->
-        <div id="carousel-demo" class="carousel">
-          <div class="item-1">
+        <div id="carousel-infinite" class="carousel">
+          <div class="item item-1">
             <!-- Slide Content -->
             <img src="./assets/images/party.jpeg" alt="concert">
           </div>
-          <div class="item-2">
+          <div class="item item-2">
             <!-- Slide Content -->
             <img src="./assets/images/city.jpeg" alt="city night">
           </div>
-          <div class="item-3">
+          <div class="item item-3">
             <!-- Slide Content -->
             <img src="./assets/images/beach.jpeg" alt="beach">
           </div>
-          <div class="item-4">
+          <div class="item item-4">
             <!-- Slide Content -->
             <img src="./assets/images/guitar.jpeg" alt="guitar">
           </div>
-          <div class="item-5">
+          <div class="item item-5">
             <!-- Slide Content -->
             <img src="./assets/images/plane.jpeg" alt="airplane">
+          </div>
+          <div class="item item-6">
+            <!-- Slide Content -->
+            <img src="./assets/images/Theme_park_AdobeStock_222547272_1.jpg" alt="carnival" title="Credit: pixel78.de - stock.adobe.com
+            Copyright: ©pixel78.de - stock.adobe.com">
           </div>
         </div>
         <!-- End Carousel -->
       </div>
     </section>
-
+    </section>
     <!-- About Us Section -->
 
     <section id="about">
@@ -162,12 +164,31 @@
     </div>
 
     </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
     <script>
-    bulmaCarousel.attach('#carousel', {
+    bulmaCarousel.attach('#carousel-infinite', {
       slidesToScroll: 1,
-      slidesToShow: 4
+      slidesToShow: 1,
+      infinite: true,
+      breakpoints: 
+      [ { 
+        changePoint: 480, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        { 
+        changePoint: 640, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        {
+        changePoint: 780, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        } 
+      ]
     });
     </script>
   
@@ -176,3 +197,7 @@
 </body>
 
 </html>
+
+<!--Image credit for carousel item #6
+Credit: pixel78.de - stock.adobe.com
+Copyright: ©pixel78.de - stock.adobe.com-->

@@ -1,13 +1,1 @@
-index[1-9].html
-*.json
-.DS_Store
-/sass
-/node_modules
-/bulma-carousel
-/css
-/css/bulma-carousel.min
-/css/documentation.min
-/css/highlight
-/js/main
-/js/doc
-/js/bulma-carousel.min
+/archive
