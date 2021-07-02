@@ -15,6 +15,7 @@
 <body>
   <!-- Header/Nav Bar -->
   <header>
+    <div id="nav-box">
     <h1>Eventbrite 2.0</h1>
     <nav>
       <ul>
@@ -24,6 +25,7 @@
         <li><a href="#contact-us">Contact Us</a></li>
       </ul>
     </nav>
+  </div>
   </header>
     </header>
 
@@ -61,27 +63,27 @@
     <!-- Addition suggersted events -->
     <section id="additional">
     <!--Start carousel-->
-    <section class="section">
+    <section class="section-carousel">
       <div class="container">
         <!-- Start Carousel -->
         <div id="carousel-infinite" class="carousel">
-          <div class="item-1">
+          <div class="item item-1">
             <!-- Slide Content -->
             <img src="./assets/images/party.jpeg" alt="concert">
           </div>
-          <div class="item-2">
+          <div class="item item-2">
             <!-- Slide Content -->
             <img src="./assets/images/city.jpeg" alt="city night">
           </div>
-          <div class="item-3">
+          <div class="item item-3">
             <!-- Slide Content -->
             <img src="./assets/images/beach.jpeg" alt="beach">
           </div>
-          <div class="item-4">
+          <div class="item item-4">
             <!-- Slide Content -->
             <img src="./assets/images/guitar.jpeg" alt="guitar">
           </div>
-          <div class="item-5">
+          <div class="item item-5">
             <!-- Slide Content -->
             <img src="./assets/images/plane.jpeg" alt="airplane">
           </div>
@@ -168,7 +170,24 @@
     bulmaCarousel.attach('#carousel-infinite', {
       slidesToScroll: 1,
       slidesToShow: 1,
-      infinite: true
+      infinite: true,
+      breakpoints: 
+      [ { 
+        changePoint: 480, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        { 
+        changePoint: 640, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        {
+        changePoint: 780, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        } 
+      ]
     });
     </script>
   
