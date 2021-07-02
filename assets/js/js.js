@@ -20,7 +20,9 @@ if (element && element.bulmaCarousel) {
 
 
 var searchButton = document.getElementById('searchBtn');
+var searchButtonW = document.getElementById('searchBtn-weather');
 var inputValue = document.getElementById('input-box');
+var inputValueW = document.getElementById('input-box-weather');
 var temp = document.getElementById('tempToday');
 
 
@@ -56,7 +58,6 @@ var temp = document.getElementById('tempToday');
 
 searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
 
-
   function eventAPI() {
 
     var apiKey = "X9wkE7SABLcE6COZMZEWPLuGebirGPFt";
@@ -73,7 +74,7 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
 
       fetch (
         'https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey + 
-        "&keyword=" + "'" + keyword + "'" + "&postalCode=" + zipCode + "&startDateTime=" + start + "&city=" + city +
+        "&keyword=" + "'" + keyword+ "'" + "&postalCode=" + zipCode + "&startDateTime=" + start + "&city=" + city +
         "&size=" + maxResults)
 
         .then(response => response.json())
@@ -107,7 +108,52 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
         })
   };
 
+  searchBtnW.addEventListener('click', weatherAPI); //Made the fetch into its own fn
 
+
+  function weatherAPI() {
+
+    var apiKey = "d7c30de99a3b40fb84ca75fd821b8b25";
+    var zipCode = $(inputValueW).val(); //zipcode has to be a number... no "" needed
+    var city = ""
+    var maxResults = "3";
+    
+    var deleteContainer = document.getElementById("results-w");
+        deleteContainer.remove(); // removes the container with the previous results id=results
+
+    console.log($(inputValueW).val()); //gets input value from input text box added the script in html for jquery
+
+      fetch (
+        "https://api.weatherbit.io/v2.0/forecast/daily?&key=" + apiKey + 
+        "&postal_code=" + zipCode + "&city=" + city)
+
+        .then(response => response.json())
+
+        .then(data => {
+         console.log(data)
+          var dataArray = data['data'];
+
+          dataArray.forEach((value, index, array) => {
+             console.log(index);
+             var weatherIndexed = dataArray[index];
+             var weathertemp = weatherIndexed.temp;
+
+            //creates a container for each result
+             var mainContainerW = document.getElementById("results-main-w");
+             var subContainerCreateW = document.createElement("div");
+             subContainerCreateW.setAttribute("id", "results-w");
+             mainContainerW.appendChild(subContainerCreateW);
+             var containerW = document.getElementById("results-w");
+             var resultContainerCreateW = document.createElement("p");
+             resultContainerCreateW.setAttribute("id", "event-results-w" + index);
+             containerW.appendChild(resultContainerCreateW);
+             var nameTxt = "Day " + (index + 1) + ": " + `${weatherIndexed.datetime}` + "</br>" + "Temp "  + ": "+ weathertemp + " C";
+             resultContainerCreateW.innerHTML = nameTxt; 
+
+          })
+
+        })
+  };
 
 
 
