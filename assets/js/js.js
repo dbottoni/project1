@@ -167,14 +167,18 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
              var icon = "https://www.weatherbit.io/static/img/icons/" + tempIcon+ ".png"
             console.log(icon)
             //creates a container for each result
+            //looks for div with id results-main-w to append childs
              var mainContainerW = document.getElementById("results-main-w");
+            //creates div for each day (currently set at 3) adds attribute id and appends
              var subContainerCreateW = document.createElement("div");
              subContainerCreateW.setAttribute("id", "results-w" + index);
              mainContainerW.appendChild(subContainerCreateW);
+             //creates <h3> to show text for current location and appends days from API
              var containerW = document.getElementById("results-w" + index);
              var hContainer = document.createElement("h3");
              containerW.appendChild(hContainer);
              hContainer.innerHTML = "Weather for current location Day " + (index + 1) + ": " + `${weatherIndexed.datetime}` + "</br>";
+             //creates <p> with id to append the results from the API
              var resultContainerCreateW = document.createElement("p");
              resultContainerCreateW.setAttribute("id", "event-results-w" + index);
              containerW.appendChild(resultContainerCreateW);
