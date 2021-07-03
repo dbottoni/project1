@@ -31,41 +31,50 @@
     </header>
 
     <!-- Search Bar/Calendar Feature/ -->
-    <section id="#top-events">
+    <section>
       <div class="input-field">
-        <div>
-          <input type="text" name="" id="input-box-weather" placeholder="zip code">
+        <!-- <div>
+          <input class="searchbar" type="text" name="" id="input-box-weather" placeholder="zip code">
           <button id="searchBtnW" type="submit">Search the weather</button>
-        </div>
-        <div>
-          <input type="text" name="" id="input-box" placeholder="Search for Events">
-          <button id="searchBtn" type="submit">Search Events</button>
+        </div> -->
+        <div id="event-box">
+          <label for="event-search">Choose an option: &nbsp;</label>
+          <select id="search-option" name="options">
+            <option value="zipcode">zip code</option>
+            <option value="keyword">Key Word</option>
+            <option value="city">City</option>
+          </select>
+          &emsp;
+          <div id="event-input">
+            <input class="searchbar" type="text" name="" id="input-box" placeholder="Search for Events">
+            <button id="searchBtn" type="submit">&nbsp;Search Events&nbsp;</button>
+          </div>
         </div>
       </div>
+       
       <div id="results-main">
         <div id="results">
 
         </div>
-
       </div>
+
       <div id="results-main-w">
         <div id="results-w">
 
         </div>
-
       </div>
     </section>
 
     <!-- Top Events Section -->
 
     <section id="top-events">
-    <div class="topEvents" id="topevents">
-    <section id="#top-events">
-    <div>
-      
-    </div> 
-    </section>
-    </div>
+      <div class="topEvents" id="topevents">
+        <section>
+          <div>
+            
+          </div>
+        </section>
+      </div>
     </section>
 
     <!-- Addition suggersted events -->
