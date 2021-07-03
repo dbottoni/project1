@@ -68,7 +68,6 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
     var link = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=';
     var apiKey = "4vUK4qgP7tGkzcyXknJjhZqBFIsmRG4D";
     var maxResults = "3";
-    var response;
 
     if (optionSelected == "zipcode") {
       zipCode = $(inputValue).val();
@@ -125,60 +124,74 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
 
           })
 
-         // var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
-        //   console.log(newEvent);
+        })
+  };
 
+  searchBtnW.addEventListener('click', getLocation); //Made the fetch into its own fn
+
+  function weatherAPI(lat, lon) {
+    var apiKey = "d7c30de99a3b40fb84ca75fd821b8b25";
+    var urlWeatherApi = "https://api.weatherbit.io/v2.0/forecast/daily?&key=";
+    var zipCode = "";//$(inputValueW).val(); //zipcode has to be a number... no "" needed
+
+    //var city = ""
+    var lat;
+    var lon;
+    var daysDisplay = [3];
+    var units = "I";
+
+    url = urlWeatherApi + apiKey + "&lat=" + lat + "&lon=" + lon + 
+    "&days=" + daysDisplay + "&postal_code=" + zipCode + "&units=" + units;
+    console.log(url)
+    //var maxResults = "3";
+    
+    var deleteContainer = document.getElementById("results-w");
+        deleteContainer.remove(); // removes the container with the previous results id=results
+
+    //console.log($(inputValueW).val()); //gets input value from input text box added the script in html for jquery
+
+      fetch (url)
+         
+        .then(response => response.json())
+
+        .then(data => {
+         console.log(data)
+          var dataArray = data['data'];
+          var weatherCity = data.city_name;
+
+          dataArray.forEach((value, index, array) => {
+             console.log(index);
+             var weatherIndexed = dataArray[index];
+             var weathertemp = weatherIndexed.temp;
+             var tempIcon = weatherIndexed.weather.icon;
+             var icon = "https://www.weatherbit.io/static/img/icons/" + tempIcon+ ".png"
+            console.log(icon)
+            //creates a container for each result
+             var mainContainerW = document.getElementById("results-main-w");
+             var subContainerCreateW = document.createElement("div");
+             subContainerCreateW.setAttribute("id", "results-w" + index);
+             mainContainerW.appendChild(subContainerCreateW);
+             var containerW = document.getElementById("results-w" + index);
+             var hContainer = document.createElement("h3");
+             containerW.appendChild(hContainer);
+             hContainer.innerHTML = "Weather for current location Day " + (index + 1) + ": " + `${weatherIndexed.datetime}` + "</br>";
+             var resultContainerCreateW = document.createElement("p");
+             resultContainerCreateW.setAttribute("id", "event-results-w" + index);
+             containerW.appendChild(resultContainerCreateW);
+             var nameTxt = "Temp "  + ": "+ weathertemp + " F" + " " + "</br>" + "City: " + `${weatherCity}` + 
+             " ";
+             resultContainerCreateW.innerHTML = nameTxt; 
+          })
 
         })
   };
 
-  // searchBtnW.addEventListener('click', weatherAPI); //Made the fetch into its own fn
+  function getLocation () {
+    navigator.geolocation.getCurrentPosition((position) => {
+      weatherAPI(position.coords.latitude, position.coords.longitude);
+    });
 
-
-  // function weatherAPI() {
-
-  //   var apiKey = "d7c30de99a3b40fb84ca75fd821b8b25";
-  //   var zipCode = $(inputValueW).val(); //zipcode has to be a number... no "" needed
-  //   var city = ""
-  //   //var maxResults = "3";
-    
-  //   var deleteContainer = document.getElementById("results-w");
-  //       deleteContainer.remove(); // removes the container with the previous results id=results
-
-  //   console.log($(inputValueW).val()); //gets input value from input text box added the script in html for jquery
-
-  //     fetch (
-  //       "https://api.weatherbit.io/v2.0/forecast/daily?&key=" + apiKey + 
-  //       "&postal_code=" + zipCode + "&city=" + city)
-
-  //       .then(response => response.json())
-
-  //       .then(data => {
-  //        console.log(data)
-  //         var dataArray = data['data'];
-
-  //         dataArray.forEach((value, index, array) => {
-  //            console.log(index);
-  //            var weatherIndexed = dataArray[index];
-  //            var weathertemp = weatherIndexed.temp;
-
-  //           //creates a container for each result
-  //            var mainContainerW = document.getElementById("results-main-w");
-  //            var subContainerCreateW = document.createElement("div");
-  //            subContainerCreateW.setAttribute("id", "results-w");
-  //            mainContainerW.appendChild(subContainerCreateW);
-  //            var containerW = document.getElementById("results-w");
-  //            var resultContainerCreateW = document.createElement("p");
-  //            resultContainerCreateW.setAttribute("id", "event-results-w" + index);
-  //            containerW.appendChild(resultContainerCreateW);
-  //            var nameTxt = "Day " + (index + 1) + ": " + `${weatherIndexed.datetime}` + "</br>" + "Temp "  + ": "+ weathertemp + " C";
-  //            resultContainerCreateW.innerHTML = nameTxt; 
-
-  //         })
-
-  //       })
-  // };
-
+  }
 
 
 

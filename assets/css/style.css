@@ -207,5 +207,11 @@ img {
     justify-content: center;
   }
 
-
+  #search-option {
+    display: flex;
+  }
+  #event-input {
+    display: flex;
+    
+  }
 
