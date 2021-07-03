@@ -403,7 +403,7 @@ searchButtonEl.addEventListener('click', getTickets);
 
 function getTickets () {
   var inputElement = document.getElementById('tickets');
-  console.log(inputElement.value);
+  // console.log(inputElement.value);
 
   var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
   fetch (api)
@@ -414,4 +414,21 @@ function getTickets () {
     console.log(data);
   })
 }
+
+
+var dropDownEl = document.getElementById('searchBarParam');
+var chosenParam = dropDownEl.value;
+chosenParam.addEventListener('change', workingDropDown);
+
+function workingDropDown () {
+  if (chosenParam === "city") {
+    console.log("city chosen");
+  } else if (chosenParam === "artist") {
+    console.log("artist chosen");
+  } else {
+    console.log("upcoming chosen");
+  }
+}
+
+
 
