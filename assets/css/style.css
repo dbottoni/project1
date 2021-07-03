@@ -41,15 +41,16 @@ header nav {
 }
 
 header nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between, inherit;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  font-weight: bold;
-  color: white;
-  font-size: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between, inherit;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    font-family: 'Permanent Marker', cursive;
 }
 
 header nav ul li a {
@@ -66,8 +67,9 @@ header nav ul li a:hover {
 }
 
 body {
-  background-color: white;
-  color: black;
+    background-color: white;
+    color: black;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .searchbar {
@@ -75,8 +77,14 @@ body {
   opacity: 0.8;
 }
 
-.contact-us {
-  color: white;
+
+.about-us {
+  margin: 25px;
+}
+
+.contactUs {
+  margin: 25px;
+  color: black;
 }
 
 h2 {
