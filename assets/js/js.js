@@ -261,27 +261,64 @@ window.onclick = function(event) {
 	  modal.style.display = "none";
 	}
   }
-// // Initialize all div with carousel class
-// var carousels = bulmaCarousel.attach('.carousel', options);
 
-// // Loop on each carousel initialized
-// for(var i = 0; i < carousels.length; i++) {
-// 	// Add listener to  event
-// 	carousels[i].on('before:show', state => {
-// 		console.log(state);
-// 	});
-// }
 
-// // Access to bulmaCarousel instance of an element
-// var element = document.querySelector('#my-element');
-// if (element && element.bulmaCarousel) {
-// 	// bulmaCarousel instance is available as element.bulmaCarousel
-// 	element.bulmaCarousel.on('before-show', function(state) {
-// 		console.log(state);
-// 	});
-// }
+var nameInput = document.querySelector('#contactName');
+var emailInput = document.querySelector('#email');
+var messageInpt = document.querySelector('#message');
+var userNameSpan = document.querySelector('#user-name');
+var msgDiv = document.querySelector("#msg");
 
-// }
+
+
+function renderUserInfo(){
+
+  var name = localStorage.getItem('name');
+  var email = localStorage.getItem('email');
+  var message = localStorage.getItem('message');
+
+  if (name === null || email === null || message === null){
+    return;
+  }
+
+
+
+}
+
+renderUserInfo();
+
+function displayErrorMessage (type, message){
+  msgDiv.textContent = message;
+  msgDiv.setAttribute('class', type);
+}
+
+var submitModalBtn = document.querySelector('#modalSubmit')
+
+submitModalBtn.addEventListener('click', function(event) { 
+  event.preventDefault();
+
+  var name = document.querySelector('#contactName').value;
+  var email = document.querySelector('#email').value;
+  var message = document.querySelector('#message').value;
+  
+
+  if (name === ''){
+    displayErrorMessage('error', 'Name cannot be blank');
+  } else if (email === ''){
+    displayErrorMessage('error', 'Email cannot be blank');
+  } else if (message === ''){
+    displayErrorMessage('error', "Please enter a message");
+  } else {
+    displayErrorMessage('success', 'Thank you, your message has been received. A customer support team member will contact you within 48 hours');
+
+      // localStorage.setItem('name', name);
+      // localStorage.setItem('email', email);
+
+      renderUserInfo();
+  }
+ });
+
+
 
 
 
