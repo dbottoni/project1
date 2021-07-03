@@ -417,13 +417,12 @@ function getTickets () {
 
 
 var dropDownEl = document.getElementById('searchBarParam');
-var chosenParam = dropDownEl.value;
-chosenParam.addEventListener('change', workingDropDown);
+dropDownEl.addEventListener('change', workingDropDown);
 
 function workingDropDown () {
-  if (chosenParam === "city") {
+  if (dropDownEl.value === "city") {
     console.log("city chosen");
-  } else if (chosenParam === "artist") {
+  } else if (dropDownEl.value === "artist") {
     console.log("artist chosen");
   } else {
     console.log("upcoming chosen");
