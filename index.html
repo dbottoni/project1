@@ -204,33 +204,34 @@
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Enter Your Name">
+              <input class="input" type="text" placeholder="Enter Your Name" id="contactName"/>
             </div>
           </div>
           
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Enter Email">
+              <input class="input" type="email" placeholder="Enter Email" id="email"/>
             </div>
           </div>
           
           <div class="field">
             <label class="label">Message</label>
             <div class="control">
-              <textarea class="textarea" placeholder="Questions or Concerns"></textarea>
+              <textarea class="textarea" placeholder="Questions or Concerns" id="message"></textarea>
             </div>
           </div>
           
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-danger is-light">Submit</button>
+              <button class="button is-danger is-light" id="modalSubmit">Submit</button>
             </div>
           </div>
         </div>
         <div class="modal-body">
-          <p>Someone from our team will be reaching out to you within 24-48hrs after submitting your form.</p>
-          <p>Thank you.</p>
+          <div id="msg"></div>
+          <!-- <p>Someone from our team will be reaching out to you within 24-48hrs after submitting your form.</p>
+          <p>Thank you.</p> -->
         </div>
         <div class="modal-footer">
           <h3>Eventbrite 2.0</h3>
