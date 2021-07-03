@@ -15,7 +15,7 @@ header {
     background-attachment: fixed;
     background-image: url(../images/concert.jpeg);
     z-index: 999;
-    height: 500px;
+    height: 600px;
 }
 
 header h1 {
@@ -52,7 +52,7 @@ header nav ul {
     font-weight: bold;
     color: white;
     font-size: 40px;
-    
+    font-family: 'Permanent Marker', cursive;
 
 }
 
@@ -72,6 +72,7 @@ header nav ul li a:hover {
 body {
     background-color: white;
     color: black;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .searchbar {
@@ -79,8 +80,13 @@ body {
     opacity: .8;
 }
 
-.contact-us {
-    color: white;
+.about-us {
+  margin: 25px;
+}
+
+.contactUs {
+  margin: 25px;
+  color: black;
 }
 
 h2 {
