@@ -214,4 +214,15 @@ img {
     display: flex;
     
   }
+  .temp-div-box {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .icon {
+    width: auto;
+    height: auto;
+
+  }
 
