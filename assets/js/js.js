@@ -1,3 +1,4 @@
+
 // Initialize all div with carousel class
 var carousels = bulmaCarousel.attach('.carousel');
 
@@ -47,34 +48,6 @@ var temp = document.getElementById('tempToday');
     
 //         })
 // });
-
-
-
-// Ticket Master API
-// https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt
-
-
-searchBtn.addEventListener('click',function(){
-
-  fetch (
-    'https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt')
-    .then(response => response.json())
-    .then(data => {
-      var nameValue = data['name'];
-      console.log(nameValue);
-      
-
-      var newEvent = data['_embedded']['events'][1]['dates']['start']['localDate'];
-    //   console.log(newEvent);
-
-
-
-        })
-});
-
-
-
-
 
 
 
@@ -307,4 +280,154 @@ window.onclick = function(event) {
 // 		console.log(state);
 // 	});
 // }
+
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var searchButtonEl = document.getElementById('searchBtn');
+searchButtonEl.addEventListener('click', getTickets);
+
+function getTickets () {
+  var inputElement = document.getElementById('tickets');
+  // console.log(inputElement.value);
+
+  var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+  fetch (api)
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+}
+
+
+var dropDownEl = document.getElementById('searchBarParam');
+dropDownEl.addEventListener('change', workingDropDown);
+
+function workingDropDown () {
+  if (dropDownEl.value === "city") {
+    console.log("city chosen");
+  } else if (dropDownEl.value === "artist") {
+    console.log("artist chosen");
+  } else {
+    console.log("upcoming chosen");
+  }
+}
+
+
+
