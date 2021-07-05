@@ -9,12 +9,15 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Staatliches&display=swap" rel="stylesheet">
+
   <title>Eventbrite 2.0</title>
 </head>
 
 <body>
   <!-- Header/Nav Bar -->
   <header>
+    <div id="nav-box">
     <h1>Eventbrite 2.0</h1>
     <nav>
       <ul>
@@ -24,6 +27,7 @@
         <li><a href="#contact-us">Contact Us</a></li>
       </ul>
     </nav>
+  </div>
   </header>
     </header>
 
@@ -56,17 +60,26 @@
     <!-- <section id="#top-events">
       <div class="input-field">
         <div>
-          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+          <input type="text" name="" id="autocomplete-input-weather" placeholder="Look up the weather">
           <button id="searchBtn" type="submit">Search</button>
         </div>
+        <div>
+          <input type="text" name="" id="autocomplete-input" placeholder="Search for Events">
+          <button type="submit">Search</button>
+        </div>
       </div>
+
   </section> -->
+
+    </section>
+
 
     <!-- Top Events Section -->
 
     <!-- <section id="top-events">
     <div class="topEvents" id="topevents">
     <section id="#top-events">
+
     <div> -->
 
 
@@ -83,38 +96,51 @@
     </div>
   </section> -->
 
+    <div>
+      
+    </div> 
+    </section>
+    </div>
+    </section>
+
+
     <!-- Addition suggersted events -->
     <section id="additional">
     <!--Start carousel-->
-    <section class="section">
+    <section class="section-carousel">
       <div class="container">
         <!-- Start Carousel -->
-        <div id="carousel-demo" class="carousel">
-          <div class="item-1">
+        <div id="carousel-infinite" class="carousel">
+          <div class="item item-1">
             <!-- Slide Content -->
             <img src="./assets/images/party.jpeg" alt="concert">
           </div>
-          <div class="item-2">
+          <div class="item item-2">
             <!-- Slide Content -->
             <img src="./assets/images/city.jpeg" alt="city night">
           </div>
-          <div class="item-3">
+          <div class="item item-3">
             <!-- Slide Content -->
             <img src="./assets/images/beach.jpeg" alt="beach">
           </div>
-          <div class="item-4">
+          <div class="item item-4">
             <!-- Slide Content -->
             <img src="./assets/images/guitar.jpeg" alt="guitar">
           </div>
-          <div class="item-5">
+          <div class="item item-5">
             <!-- Slide Content -->
             <img src="./assets/images/plane.jpeg" alt="airplane">
+          </div>
+          <div class="item item-6">
+            <!-- Slide Content -->
+            <img src="./assets/images/Theme_park_AdobeStock_222547272_1.jpg" alt="carnival" title="Credit: pixel78.de - stock.adobe.com
+            Copyright: ©pixel78.de - stock.adobe.com">
           </div>
         </div>
         <!-- End Carousel -->
       </div>
     </section>
-
+    </section>
     <!-- About Us Section -->
 
     <section id="about">
@@ -123,6 +149,11 @@
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae numquam possimus sint expedita placeat repellat nostrum, aut iusto alias consequatur est voluptatum reprehenderit accusantium a recusandae laboriosam cupiditate eum eius? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus odio sunt, libero blanditiis laboriosam, aliquid dolor dignissimos architecto nemo ducimus similique sint hic vel dicta neque. Qui iste blanditiis eum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet officiis accusamus reiciendis, tempora ducimus tempore velit doloribus consectetur quidem soluta repellendus, labore et! Iusto quaerat doloribus, ratione fuga veritatis vitae.</p>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur eligendi quibusdam nemo provident est architecto, quasi vel ex beatae et doloribus aspernatur eius sint, quod quas omnis deserunt aliquam unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos deleniti consectetur culpa voluptate pariatur officiis! Harum ipsum cupiditate sunt! Quae, consectetur voluptas! Vero delectus minus ratione qui fugit animi repudiandae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, accusamus molestiae. Eligendi sapiente id, sunt iusto autem quo harum impedit nobis vel amet odio maiores tempora, quae culpa, ea nostrum. lorem</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione exercitationem labore aspernatur quod expedita architecto in iure molestias, cumque quia, alias perferendis? Praesentium eius reiciendis esse blanditiis aperiam perferendis optio. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis consequatur nulla inventore blanditiis, fugiat similique veritatis totam quam expedita, voluptates dolorem error vero adipisci id, assumenda magni vitae praesentium temporibus! lorem</p>
+
+
+      <h3>Mission Statement</h3>
+      <p>Want to have a fun weekend? Looking for free or interesting things to do with your friends, family or different people?  Eventbrite 2.0 helps people find events locally! You can interact & socialize with people of all walks of life and have a sense of community. Eventbrite brings people together to enjoy the outdoors!</p>
+
 
 
 
@@ -134,6 +165,9 @@
     </section>
 
     <!-- Footer/Contact Us Section -->
+
+    <section id="contact-us" class="contactUs">
+
     <section id="#contact-us">
     <footer class="contactUs" id="reachUs">
       <div>
@@ -150,8 +184,10 @@
     
    
     <section id="contact-us">
+
     <h2>Contact Us</h2>
     <p>If you have any questions or concerns, please click the following button and complete the form to reach out to us!</p>
+    <br>
 
     <!-- Trigger/Open The Modal -->
     <button id="myBtn" class="button is-info">Questions?</button>
@@ -168,33 +204,34 @@
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Enter Your Name">
+              <input class="input" type="text" placeholder="Enter Your Name" id="contactName"/>
             </div>
           </div>
           
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Enter Email">
+              <input class="input" type="email" placeholder="Enter Email" id="email"/>
             </div>
           </div>
           
           <div class="field">
             <label class="label">Message</label>
             <div class="control">
-              <textarea class="textarea" placeholder="Questions or Concerns"></textarea>
+              <textarea class="textarea" placeholder="Questions or Concerns" id="message"></textarea>
             </div>
           </div>
           
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-danger is-light">Submit</button>
+              <button class="button is-danger is-light" id="modalSubmit">Submit</button>
             </div>
           </div>
         </div>
         <div class="modal-body">
-          <p>Someone from our team will be reaching out to you within 24-48hrs after submitting your form.</p>
-          <p>Thank you.</p>
+          <div id="msg"></div>
+          <!-- <p>Someone from our team will be reaching out to you within 24-48hrs after submitting your form.</p>
+          <p>Thank you.</p> -->
         </div>
         <div class="modal-footer">
           <h3>Eventbrite 2.0</h3>
@@ -202,12 +239,31 @@
     </div>
 
     </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
     <script>
-    bulmaCarousel.attach('#carousel', {
+    bulmaCarousel.attach('#carousel-infinite', {
       slidesToScroll: 1,
-      slidesToShow: 4
+      slidesToShow: 1,
+      infinite: true,
+      breakpoints: 
+      [ { 
+        changePoint: 480, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        { 
+        changePoint: 640, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        {
+        changePoint: 780, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        } 
+      ]
     });
     </script>
   
@@ -216,3 +272,7 @@
 </body>
 
 </html>
+
+<!--Image credit for carousel item #6
+Credit: pixel78.de - stock.adobe.com
+Copyright: ©pixel78.de - stock.adobe.com-->
