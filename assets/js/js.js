@@ -403,31 +403,49 @@ searchButtonEl.addEventListener('click', getTickets);
 
 function getTickets () {
   var inputElement = document.getElementById('tickets');
-  // console.log(inputElement.value);
+  
+ 
 
-  var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
-  fetch (api)
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-  })
-}
+//   var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+//   fetch (api)
+//   .then(response => {
+//     return response.json();
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+// }
 
 
-var dropDownEl = document.getElementById('searchBarParam');
-dropDownEl.addEventListener('change', workingDropDown);
-
-function workingDropDown () {
+  var dropDownEl = document.getElementById('searchBarParam');
+  console.log(dropDownEl.value);
   if (dropDownEl.value === "city") {
-    console.log("city chosen");
-  } else if (dropDownEl.value === "artist") {
-    console.log("artist chosen");
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&city=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+  }  else if (dropDownEl.value === "artist") {
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
   } else {
-    console.log("upcoming chosen");
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
   }
+
 }
-
-
-
