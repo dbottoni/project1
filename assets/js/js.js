@@ -25,31 +25,6 @@ var inputValue = document.getElementById('searchBox');
 var temp = document.getElementById('tempToday');
 
 
-//Weather Bit API
-
-//var api = "https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=379c8609b48d4cddafc2ced675a19390";
-//var city = 
-
-
-// searchBtn.addEventListener('click',function(){
-
-//   fetch (
-//     'https://api.weatherbit.io/v2.0/forecast/daily?city='+inputValue.value+'&key=379c8609b48d4cddafc2ced675a19390'
-//     )
-//     .then(response => response.json())
-//     .then(data => {
-//       var nameValue = data['name'];
-//       console.log(data);
-
-//       //var tempValue = Math.round(((parseFloat(data['data']['max_temp'])-273.15)*1.8)+32) + '&deg';
-//       var tempValue = Math.round((parseFloat(data['data']['1']['temp']*1.8)+32)) + '&deg';
-
-//       temp.innerHTML = tempValue;
-    
-//         })
-// });
-
-
 
 
 
@@ -270,7 +245,6 @@ var userNameSpan = document.querySelector('#user-name');
 var msgDiv = document.querySelector("#msg");
 
 
-
 function renderUserInfo(){
 
   var name = localStorage.getItem('name');
@@ -280,9 +254,6 @@ function renderUserInfo(){
   if (name === null || email === null || message === null){
     return;
   }
-
-
-
 }
 
 renderUserInfo();
