@@ -440,31 +440,86 @@ searchButtonEl.addEventListener('click', getTickets);
 
 function getTickets () {
   var inputElement = document.getElementById('tickets');
-  // console.log(inputElement.value);
-
-  var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
-  fetch (api)
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-  })
-}
 
 
-var dropDownEl = document.getElementById('searchBarParam');
-dropDownEl.addEventListener('change', workingDropDown);
-
-function workingDropDown () {
+  var dropDownEl = document.getElementById('searchBarParam');
+  console.log(dropDownEl.value);
   if (dropDownEl.value === "city") {
-    console.log("city chosen");
-  } else if (dropDownEl.value === "artist") {
-    console.log("artist chosen");
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&city=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      // console.log(data._embedded.attractions);
+      var attractionsList = data._embedded.attractions;
+      for(var i = 0; i < attractionsList.length; i++) {
+        console.log(attractionsList[i]);
+        console.log(attractionsList[i].name);
+        console.log(attractionsList[i].url);
+        console.log(attractionsList[i].images[0].url);
+        var resultsBox = document.getElementById("searchResult");
+        var innerBox = document.createElement("div");
+        var titleEl = document.createElement("h2");
+        var ticketLink = document.createElement("a");
+        var imageEl = document.createElement("img");
+        titleEl.innerText = attractionsList[i].name;
+        ticketLink.innerText = "Click here for your tickets!";
+        ticketLink.href = attractionsList[i].url;
+        imageEl.src = attractionsList[i].images[0].url;
+        innerBox.appendChild(titleEl);
+        innerBox.appendChild( ticketLink);
+        innerBox.appendChild(imageEl);
+        resultsBox.appendChild(innerBox);
+      }
+    })
+  }  else if (dropDownEl.value === "artist") {
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      var resultsBox = document.getElementById("searchResult");
+      var innerBox = document.createElement("div");
+      var titleEl = document.createElement("h2");
+      var ticketLink = document.createElement("a");
+      var imageEl = document.createElement("img");
+      titleEl.innerText = data._embedded.attractions[0].name;
+      ticketLink.innerText = "Click here for upcoming events!";
+      ticketLink.href = data._embedded.attractions[0].url;
+      imageEl.src = data._embedded.attractions[0].images[0].url;
+      innerBox.appendChild(titleEl);
+      innerBox.appendChild(ticketLink);
+      innerBox.appendChild(imageEl);
+      resultsBox.appendChild(innerBox);
+    })
   } else {
-    console.log("upcoming chosen");
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&sizse=1&genre=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
   }
+
 }
 
 
 
+
+
+
+//   var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+//   fetch (api)
+//   .then(response => {
+//     return response.json();
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+// }
