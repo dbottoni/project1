@@ -8,7 +8,7 @@
 * Karla: HTML / CSS 
 
 - Back End
-* Karla: JavaSript
+* Karla: JavaScript
 * Devin: JavaScipt/ API's
 * Dana: JavaScript/ API's
 
