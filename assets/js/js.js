@@ -19,127 +19,78 @@ if (element && element.bulmaCarousel) {
 	});
 }
 
+var searchButtonEl = document.getElementById('searchBtn');
+searchButtonEl.addEventListener('click', getTickets);
 
-var searchButton = document.getElementById('searchBtn');
-//var searchButtonW = document.getElementById('searchBtn-weather');
-var inputValue = document.getElementById('input-box');
-//var inputValueW = document.getElementById('input-box-weather');
-//var temp = document.getElementById('tempToday');
+function getTickets () {
+  var inputElement = document.getElementById('tickets');
 
+  var dropDownEl = document.getElementById('searchBarParam');
+  console.log(dropDownEl.value);
+  if (dropDownEl.value === "city") {
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&city=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      // console.log(data._embedded.attractions);
+      var attractionsList = data._embedded.attractions;
+      for(var i = 0; i < attractionsList.length; i++) {
+        console.log(attractionsList[i]);
+        console.log(attractionsList[i].name);
+        console.log(attractionsList[i].url);
+        console.log(attractionsList[i].images[0].url);
+        var resultsBox = document.getElementById("searchResult");
+        var innerBox = document.createElement("div");
+        var titleEl = document.createElement("h2");
+        var ticketLink = document.createElement("a");
+        var imageEl = document.createElement("img");
+        titleEl.innerText = attractionsList[i].name;
+        ticketLink.innerText = "Click here for your tickets!";
+        ticketLink.href = attractionsList[i].url;
+        imageEl.src = attractionsList[i].images[0].url;
+        innerBox.appendChild(titleEl);
+        innerBox.appendChild( ticketLink);
+        innerBox.appendChild(imageEl);
+        resultsBox.appendChild(innerBox);
+      }
+    })
+  }  else if (dropDownEl.value === "artist") {
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      var resultsBox = document.getElementById("searchResult");
+      var innerBox = document.createElement("div");
+      var titleEl = document.createElement("h2");
+      var ticketLink = document.createElement("a");
+      var imageEl = document.createElement("img");
+      titleEl.innerText = data._embedded.attractions[0].name;
+      ticketLink.innerText = "Click here for upcoming events!";
+      ticketLink.href = data._embedded.attractions[0].url;
+      imageEl.src = data._embedded.attractions[0].images[0].url;
+      innerBox.appendChild(titleEl);
+      innerBox.appendChild(ticketLink);
+      innerBox.appendChild(imageEl);
+      resultsBox.appendChild(innerBox);
+    })
+  } else {
+    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&sizse=1&genre=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    fetch (api)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+  }
 
-//Weather Bit API
-
-//var api = "https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=379c8609b48d4cddafc2ced675a19390";
-//var city = 
-
-
-// searchBtn.addEventListener('click',function(){
-
-//   fetch (
-//     'https://api.weatherbit.io/v2.0/forecast/daily?city='+inputValue.value+'&key=379c8609b48d4cddafc2ced675a19390'
-//     )
-//     .then(response => response.json())
-//     .then(data => {
-//       var nameValue = data['name'];
-//       console.log(data);
-
-//       //var tempValue = Math.round(((parseFloat(data['data']['max_temp'])-273.15)*1.8)+32) + '&deg';
-//       var tempValue = Math.round((parseFloat(data['data']['1']['temp']*1.8)+32)) + '&deg';
-
-//       temp.innerHTML = tempValue;
-    
-//         })
-// });
-
-
-
-<<<<<<< HEAD
-// Ticket Master API
-// https://app.ticketmaster.com/discovery/v2/events.json?apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt
-
-
-searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
-
-  function eventAPI() {
-    var optionSelected = $('#search-option').find(":selected").val();
-    console.log(optionSelected)
-    var zipCode = "";
-    var keyword ="";
-    var city = "";
-    var fetchOption = "";
-    var link = 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=';
-    var apiKey = "4vUK4qgP7tGkzcyXknJjhZqBFIsmRG4D";
-    var maxResults = "3";
-
-    if (optionSelected == "zipcode") {
-      zipCode = $(inputValue).val();
-      keyword = "";     
-      city = "";
-      fetchOption =  link + apiKey + "&size=" + maxResults + "&postalCode=" + zipCode + "&city=" + city +
-      "&keyword=" + keyword;
-    }
-    else if (optionSelected == "keyword") {
-      zipCode = "";
-      keyword = "'" + $(inputValue).val() + "'";     
-      city = "";
-      fetchOption = link + apiKey + "&size=" + maxResults + "&postalCode=" + zipCode + "&city=" + city +
-      "&keyword=" + keyword;
-    } 
-    else if (optionSelected == "city") {
-      zipCode = "";
-      keyword = "";     
-      city = $(inputValue).val();
-      fetchOption = link + apiKey + "&size=" + maxResults + "&postalCode=" + zipCode + "&city=" + city +
-      "&keyword=" + keyword;
-    }
-   
-    var deleteContainer = document.getElementById("results");
-        deleteContainer.remove(); // removes the container with the previous results id=results
-    var deleteContainer = document.getElementById("results-w-event");
-        deleteContainer.remove(); // removes the container with the previous results id=results
-
-    console.log($(inputValue).val()); //gets input value from input text box added the script in html for jquery
-    console.log(optionSelected)
-    console.log(fetchOption)
-      fetch (fetchOption)
-        //console.log('https://app.ticketmaster.com/discovery/v2/events.json?apikey=' + apiKey + "&size=" + maxResults + "&postalCode=" + zipCode + "&city=" + city +
-        //"&keyword=" + keyword)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data)
-          var embedded = data['_embedded'];
-          console.log(embedded)
-          var mainContainerEvents = document.getElementById("results-main");
-          var subContainerCreate = document.createElement("div");
-          subContainerCreate.setAttribute("id", "results");
-          mainContainerEvents.appendChild(subContainerCreate);
-
-          
-          embedded.events.forEach((value, index, array) => {
-            console.log("event index: " + index);
-            var eventIndexed = embedded.events[index];
-            var eventName = eventIndexed.name;
-
-           //creates a container for each result
-            var containerEvents = document.getElementById("results");
-            var resultContainerCreate = document.createElement("p");
-            resultContainerCreate.setAttribute("id", "event-results" + index);
-            containerEvents.appendChild(resultContainerCreate);
-            var nameTxt = "Event: " + (index + 1) + " "+ eventName + "</br>" + "URL: " + `${eventIndexed.url}`;
-            resultContainerCreate.innerHTML = nameTxt; 
-
-            var lat = eventIndexed[["_embedded"]].venues[0].location.latitude;
-            var lon = eventIndexed[["_embedded"]].venues[0].location.longitude;
-            //eventIndexed._embedded.venues[0].location.latitute
-            debugger;
-            var eventIndex = index;
-            weatherAPI(lat,lon,eventIndex);
-          })
-
-        })
-  };
-
-  searchBtnW.addEventListener('click', getLocation); //Made the fetch into its own fn
+}
 
   function weatherAPI(latitude, longitude, eventIndex) {
     var apiKey = "d7c30de99a3b40fb84ca75fd821b8b25";
@@ -233,8 +184,6 @@ searchBtn.addEventListener('click', eventAPI); //Made the fetch into its own fn
 
 
 
-=======
->>>>>>> 29305f33b3290d5c4190a3ab336d0d77b10aae3c
 
 
 
@@ -619,36 +568,36 @@ submitModalBtn.addEventListener('click', function(event) {
 
 
 
-var searchButtonEl = document.getElementById('searchBtn');
-searchButtonEl.addEventListener('click', getTickets);
+// var searchButtonEl = document.getElementById('searchBtn');
+// searchButtonEl.addEventListener('click', getTickets);
 
-function getTickets () {
-  var inputElement = document.getElementById('tickets');
-  // console.log(inputElement.value);
+// function getTickets () {
+//   var inputElement = document.getElementById('tickets');
+//   // console.log(inputElement.value);
 
-  var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
-  fetch (api)
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-  })
-}
+//   var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+//   fetch (api)
+//   .then(response => {
+//     return response.json();
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+// }
 
 
-var dropDownEl = document.getElementById('searchBarParam');
-dropDownEl.addEventListener('change', workingDropDown);
+// var dropDownEl = document.getElementById('searchBarParam');
+// dropDownEl.addEventListener('change', workingDropDown);
 
-function workingDropDown () {
-  if (dropDownEl.value === "city") {
-    console.log("city chosen");
-  } else if (dropDownEl.value === "artist") {
-    console.log("artist chosen");
-  } else {
-    console.log("upcoming chosen");
-  }
-}
+// function workingDropDown () {
+//   if (dropDownEl.value === "city") {
+//     console.log("city chosen");
+//   } else if (dropDownEl.value === "artist") {
+//     console.log("artist chosen");
+//   } else {
+//     console.log("upcoming chosen");
+//   }
+// }
 
 
 

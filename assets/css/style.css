@@ -73,14 +73,11 @@ body {
 }
 
 .searchbar {
-<<<<<<< HEAD
     padding: auto;
     opacity: .8;
     width: 50vh;
-=======
   padding: auto;
   opacity: 0.8;
->>>>>>> 29305f33b3290d5c4190a3ab336d0d77b10aae3c
 }
 
 
@@ -205,18 +202,16 @@ img {
   }
 }
 
-<<<<<<< HEAD
   @media screen and (max-width: 1800px) {
     img {
       width: 100%;
       height: 70vh;
     }
-=======
+  }
 @media screen and (max-width: 1800px) {
   img {
     width: 100%;
     height: 75vh;
->>>>>>> 29305f33b3290d5c4190a3ab336d0d77b10aae3c
   }
 }
 
@@ -234,7 +229,6 @@ img {
   }
 }
 
-<<<<<<< HEAD
   #nav-box {
     display:flex;
     flex-flow: row wrap;
@@ -266,7 +260,6 @@ img {
 
   }
 
-=======
 #nav-box {
   display: flex;
   flex-flow: row wrap;
@@ -281,4 +274,3 @@ img {
 #msg.error {
   color: red;
 }
->>>>>>> 29305f33b3290d5c4190a3ab336d0d77b10aae3c
