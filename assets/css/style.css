@@ -1,45 +1,43 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    padding: 20px 20px;
-    /*display: flex;
+  padding: 20px 20px;
+  /*display: flex;
     justify-content: space-between;
     flex-wrap: wrap;*/
-    top: 0;
-    background-size: cover;
-    background-position: 40%;
-    background-attachment: fixed;
-    background-image: url(../images/concert.jpeg);
-    z-index: 999;
-    height: 500px;
+  top: 0;
+  background-size: cover;
+  background-position: 40%;
+  background-attachment: fixed;
+  background-image: url(../images/concert.jpeg);
+  z-index: 999;
+  height: 500px;
 }
 
 header h1 {
-    font-weight: bold;
-    font-size: 50px;
-    margin: 0;
-    text-shadow: 0 0 10px;
-    color: white;
-    position: sticky;
-    top: 20px;
-    
+  font-weight: bold;
+  font-size: 50px;
+  margin: 0;
+  text-shadow: 0 0 10px;
+  color: white;
+  position: sticky;
+  top: 20px;
 }
 
 header a {
-    text-decoration: none;
-    font-size: 40px;
-    margin: 0;
-    font-weight: bold;
-    color: white;
-
+  text-decoration: none;
+  font-size: 40px;
+  margin: 0;
+  font-weight: bold;
+  color: white;
 }
 
 header nav {
-    margin: 6px 0;
+  margin: 6px 0;
 }
 
 header nav ul {
@@ -52,40 +50,51 @@ header nav ul {
     font-weight: bold;
     color: white;
     font-size: 40px;
-    
-
+    font-family: 'Permanent Marker', cursive;
 }
 
 header nav ul li a {
-    padding: 10px 15px;
-    font-weight: bold;
-    font-size: 25px;
-    text-shadow: 0 0 10px;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 25px;
+  text-shadow: 0 0 10px;
 }
 
 header nav ul li a:hover {
-    border-radius: 25px;
-    text-shadow: 0 0 30px;
-    color: yellow;
+  border-radius: 25px;
+  text-shadow: 0 0 30px;
+  color: yellow;
 }
 
 body {
     background-color: white;
     color: black;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .searchbar {
+<<<<<<< HEAD
     padding: auto;
     opacity: .8;
     width: 50vh;
+=======
+  padding: auto;
+  opacity: 0.8;
+>>>>>>> 29305f33b3290d5c4190a3ab336d0d77b10aae3c
 }
 
-.contact-us {
-    color: white;
+
+.about-us {
+  margin: 25px;
+}
+
+.contactUs {
+  margin: 25px;
+  color: black;
 }
 
 h2 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 img {
@@ -95,106 +104,137 @@ img {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    position: fixed;
-    bottom: 0;
-    background-color: #fefefe;
-    color: black;
-    width: 100%;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s
-  }
-  
-  /* The Close Button */
-  .close {
-    color: black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .modal-header {
-    padding: 2px 16px;
-    background-color: hsl(204, 86%, 53%);
-    color: white;
-  }
-  
-  .modal-body {padding: 2px 16px;}
-  
-  .modal-footer {
-    padding: 2px 16px;
-    background-color: hsl(204, 86%, 53%);
-    color: white;
-  }
-  
-  /* Add Animation */
-  @-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0} 
-    to {bottom: 0; opacity: 1}
-  }
-  
-  @keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-  }
-  
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
 
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  color: black;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s;
+}
+
+/* The Close Button */
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: hsl(204, 86%, 53%);
+  color: white;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: hsl(204, 86%, 53%);
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+<<<<<<< HEAD
   @media screen and (max-width: 1800px) {
     img {
       width: 100%;
       height: 70vh;
     }
+=======
+@media screen and (max-width: 1800px) {
+  img {
+    width: 100%;
+    height: 75vh;
+>>>>>>> 29305f33b3290d5c4190a3ab336d0d77b10aae3c
   }
+}
 
-  @media screen and (max-width: 780px) {
-    img {
-      width: 100vh;
-      height: 50vh;
-    }
+@media screen and (max-width: 780px) {
+  img {
+    width: 100vh;
+    height: 50vh;
   }
-  
-  @media screen and (max-width: 640px) {
-    img {
-      width: 100vh;
-      height: 40vh;
-    }
-  }
+}
 
+@media screen and (max-width: 640px) {
+  img {
+    width: 100vh;
+    height: 40vh;
+  }
+}
+
+<<<<<<< HEAD
   #nav-box {
     display:flex;
     flex-flow: row wrap;
@@ -226,3 +266,19 @@ img {
 
   }
 
+=======
+#nav-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#msg.success {
+  color: green;
+}
+
+#msg.error {
+  color: red;
+}
+>>>>>>> 29305f33b3290d5c4190a3ab336d0d77b10aae3c
