@@ -8,7 +8,7 @@
 * Karla: HTML / CSS 
 
 - Back End
-* Karla: JavaSript
+* Karla: JavaScript
 * Devin: JavaScipt/ API's
 * Dana: JavaScript/ API's
 
@@ -26,6 +26,9 @@
 * Ticket Master API
 
 ### Mock Up Screenshots
-![image](https://user-images.githubusercontent.com/72705457/124143184-e7734300-da58-11eb-937b-65fcc9500257.png)
+![image](https://user-images.githubusercontent.com/72705457/124626340-93979e00-de4c-11eb-8a7a-f43cf62775e6.png)
 
-![image](https://user-images.githubusercontent.com/72705457/124143053-cb6fa180-da58-11eb-9e10-6cba2f38ee52.png)
+![image](https://user-images.githubusercontent.com/72705457/124626360-97c3bb80-de4c-11eb-878f-afa43c6378f4.png)
+
+![image](https://user-images.githubusercontent.com/72705457/124626368-9abeac00-de4c-11eb-90d5-c58a459f9eae.png)
+
