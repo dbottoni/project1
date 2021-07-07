@@ -74,9 +74,6 @@ body {
 }
 
 .searchbar {
-    padding: auto;
-    opacity: .8;
-    width: 50vh;
   padding: auto;
   opacity: 0.8;
 }
@@ -203,12 +200,6 @@ img {
   }
 }
 
-  @media screen and (max-width: 1800px) {
-    img {
-      width: 100%;
-      height: 70vh;
-    }
-  }
 @media screen and (max-width: 1800px) {
   img {
     width: 100%;
@@ -229,37 +220,6 @@ img {
     height: 40vh;
   }
 }
-
-  #nav-box {
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  #event-box {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-  }
-
-  #search-option {
-    display: flex;
-  }
-  #event-input {
-    display: flex;
-    
-  }
-  .temp-div-box {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .icon {
-    width: auto;
-    height: auto;
-
-  }
 
 #nav-box {
   display: flex;

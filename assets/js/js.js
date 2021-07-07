@@ -25,41 +25,50 @@ var inputValue = document.getElementById('searchBox');
 var temp = document.getElementById('tempToday');
 
 
-function inBoxCheck(city) {
-  
-  var cityInput = city.trim();
-  var cityLower = cityInput.toLowerCase();
-  var lettersState = /^[a-zA-Z\s]+\,[a-zA-Z\s]+$/;
-  var lettersCity = /^[a-zA-Z\s]+$/;
-  //inBox.value = "";
-  //console.log(cityInput)
-  if (cityInput && (cityLower.match(lettersState)||cityLower.match(lettersCity))) {
-      //messageBox(true);
-     // saveSearch(cityInput);
-      weatherAPI(cityLower);
-  }
-  else { 
-      //messageBox(false);
-  }
-};
+//Weather Bit API
+
+//var api = "https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=379c8609b48d4cddafc2ced675a19390";
+//var city = 
 
 
-  function weatherAPI(cityIn) {
+// searchBtn.addEventListener('click',function(){
+
+//   fetch (
+//     'https://api.weatherbit.io/v2.0/forecast/daily?city='+inputValue.value+'&key=379c8609b48d4cddafc2ced675a19390'
+//     )
+//     .then(response => response.json())
+//     .then(data => {
+//       var nameValue = data['name'];
+//       console.log(data);
+
+//       //var tempValue = Math.round(((parseFloat(data['data']['max_temp'])-273.15)*1.8)+32) + '&deg';
+//       var tempValue = Math.round((parseFloat(data['data']['1']['temp']*1.8)+32)) + '&deg';
+
+//       temp.innerHTML = tempValue;
+    
+//         })
+// });
+
+
+
+  function weatherAPI(latitude, longitude) {
     var apiKey = "d7c30de99a3b40fb84ca75fd821b8b25";
     var urlWeatherApi = "https://api.weatherbit.io/v2.0/forecast/daily?&key=";
     
-    // var lat = latitude;
-    // var lon = longitude;
+     var lat = latitude;
+     var lon = longitude;
+     var index = i;
 
-    console.log(cityIn)
+
     var daysDisplay = [1]; //max # of days to display
     var units = "I";
 
     // var url = urlWeatherApi + apiKey + "&lat=" + lat + "&lon=" + lon + 
     // "&days=" + daysDisplay + "&postal_code=" + zipCode + "&units=" + units;
-
-    var url =  urlWeatherApi + apiKey + "&units=" + units + "&days=" + daysDisplay +
-    "&city=" + cityIn;
+     var url = urlWeatherApi + apiKey + "&lat=" + lat + "&lon=" + lon + 
+     "&days=" + daysDisplay + "&units=" + units;
+    //var url =  urlWeatherApi + apiKey + "&units=" + units + "&days=" + daysDisplay +
+    //"&city=" + cityIn;
 
     fetch (url)
         .then(function(response) { //=> response.json())
@@ -68,7 +77,7 @@ function inBoxCheck(city) {
                 response.json().then(function(cityIn) {
                 //console.log(data);
                     var allData = cityIn;
-                    dataForContainers(allData);
+                    dataForContainers(allData, index);
                     console.log(allData)
                 });
             }
@@ -101,63 +110,56 @@ function dataForContainers(data) {
          var weatherCity = data.city_name;
          var weatherState = data.state_code;
  
-                     //main api variables by index
-                     var weatherIndexed = dataArray[index];
-                     var weathertemp = weatherIndexed.temp;
-                     var tempIcon = weatherIndexed.weather.icon;
-                     var icon = "https://www.weatherbit.io/static/img/icons/" + tempIcon + ".png"
-                     var altImg = weatherIndexed.weather.description;
-                     var humidity = weatherIndexed.rh;
-                     var uvIndex = weatherIndexed.uv;
-                     var windSpeed = weatherIndexed.wind_spd
-                     //console.log("weather index " + index)
-                     //console.log("city weather " + weathertemp)
-                     //creates a container for each result
-                     //looks for div with id results-main-w to append childs
+      //main api variables by index
+      var weatherIndexed = dataArray[index];
+      var weathertemp = weatherIndexed.temp;
+      var tempIcon = weatherIndexed.weather.icon;
+      var icon = "https://www.weatherbit.io/static/img/icons/" + tempIcon + ".png"
+      var altImg = weatherIndexed.weather.description;
+      var humidity = weatherIndexed.rh;
+      var uvIndex = weatherIndexed.uv;
+      var windSpeed = weatherIndexed.wind_spd
 
-                     
-                         var getContainerW = document.getElementById("results-weather2");
-                         //creates div for each day (currently set at 5) adds attribute id and appends
-                         var subContainerCreateW = document.createElement("div");
-                         $(subContainerCreateW).attr({"id": "results-w-day" + index, "class": "temp-div-box2 container box"});
-                         getContainerW.appendChild(subContainerCreateW);
-                         //creates <h3> to show text for current location and appends days from API
-                         //var containerW = document.getElementById("results-w" + eventIndexW);
-                         var hContainer = document.createElement("h2");
-                         subContainerCreateW.appendChild(hContainer);
-                         hContainer.innerHTML = "Today: " + `${weatherIndexed.datetime}` + "</br>";
-                     
-                         //creates <p> with id to append the results from the API
-                         var pW = document.createElement("p");
-                         //$(pW).attr({"id": "event-results-w" + index});
-                         subContainerCreateW.appendChild(pW);
-                         var nameTxt = "Temp "  + ": "+ weathertemp + " F" + " " + "</br>" + "City: " + `${weatherCity}` + 
-                         ", " + `${weatherState}` + "</br>" + "Humidity: " + humidity + "%" + "</br>" +
-                         "</br>" + "Wind Speed: " + windSpeed;
-                         pW.innerHTML = nameTxt; 
- 
-                         //uvIndexCheck(uvIndex);
- 
-                         var pW2 = document.createElement("p");
-                         //$(pW2).attr({"id": "color"+index, "class":color});
-                         $(pW2).attr({"id": "color"+index});
-                         subContainerCreateW.appendChild(pW2);
-                         var nameTxt2 = "UV Index: " + uvIndex;
-                         pW2.innerHTML = nameTxt2;
- 
-                         
- 
-                         var imgContainer = document.createElement("img");
-                         $(imgContainer).attr({"src":icon, "class":"icon", "alt":altImg});
-                         subContainerCreateW.appendChild(imgContainer);
-                         //console.log(index)
-                         //console.log(icon)
+      //creates a container for each result
+      //looks for div with id results-main-w to append childs
+
+      
+          var getContainerW = document.getElementById("results-weather2");
+          //creates div for each day (currently set at 5) adds attribute id and appends
+          var subContainerCreateW = document.createElement("div");
+          $(subContainerCreateW).attr({"id": "results-w-day" + index, "class": "temp-div-box2 container box"});
+          getContainerW.appendChild(subContainerCreateW);
+          //creates <h3> to show text for current location and appends days from API
+          //var containerW = document.getElementById("results-w" + eventIndexW);
+          var hContainer = document.createElement("h2");
+          subContainerCreateW.appendChild(hContainer);
+          hContainer.innerHTML = "Today: " + `${weatherIndexed.datetime}` + "</br>";
+      
+          //creates <p> with id to append the results from the API
+          var pW = document.createElement("p");
+          //$(pW).attr({"id": "event-results-w" + index});
+          subContainerCreateW.appendChild(pW);
+          var nameTxt = "Temp "  + ": "+ weathertemp + " F" + " " + "</br>" + "City: " + `${weatherCity}` + 
+          ", " + `${weatherState}` + "</br>" + "Humidity: " + humidity + "%" + "</br>" +
+          "</br>" + "Wind Speed: " + windSpeed;
+          pW.innerHTML = nameTxt; 
+
+          //uvIndexCheck(uvIndex);
+
+          var pW2 = document.createElement("p");
+          //$(pW2).attr({"id": "color"+index, "class":color});
+          $(pW2).attr({"id": "color"+index});
+          subContainerCreateW.appendChild(pW2);
+          var nameTxt2 = "UV Index: " + uvIndex;
+          pW2.innerHTML = nameTxt2;
+
+          var imgContainer = document.createElement("img");
+          $(imgContainer).attr({"src":icon, "class":"icon", "alt":altImg});
+          subContainerCreateW.appendChild(imgContainer);
+          //console.log(index)
+          //console.log(icon)
         
-
-
-              }
-
-
+}
 
 
 
@@ -551,7 +553,7 @@ function getTickets () {
   var dropDownEl = document.getElementById('searchBarParam');
   console.log(dropDownEl.value);
   if (dropDownEl.value === "city") {
-    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&city=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    var api =  "https://app.ticketmaster.com/discovery/v2/events.json?&city=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
     fetch (api)
     .then(response => {
       return response.json();
@@ -559,65 +561,84 @@ function getTickets () {
     .then(data => {
       console.log(data);
       // console.log(data._embedded.attractions);
-      var attractionsList = data._embedded.attractions;
-      for(var i = 0; i < attractionsList.length; i++) {
-        console.log(attractionsList[i]);
-        console.log(attractionsList[i].name);
-        console.log(attractionsList[i].url);
-        console.log(attractionsList[i].images[0].url);
-        var resultsBox = document.getElementById("searchResult");
-        var innerBox = document.createElement("div");
-        var titleEl = document.createElement("h2");
-        var ticketLink = document.createElement("a");
-        var imageEl = document.createElement("img");
-        titleEl.innerText = attractionsList[i].name;
-        ticketLink.innerText = "Click here for your tickets!";
-        ticketLink.href = attractionsList[i].url;
-        imageEl.src = attractionsList[i].images[0].url;
-        innerBox.appendChild(titleEl);
-        innerBox.appendChild( ticketLink);
-        innerBox.appendChild(imageEl);
-        resultsBox.appendChild(innerBox);
-      }
-      inBoxCheck(inputElement.value);
-      
+      eventInformation(data)
+
     })
   }  else if (dropDownEl.value === "artist") {
-    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    var api =  "https://app.ticketmaster.com/discovery/v2/events.json?&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
     fetch (api)
     .then(response => {
       return response.json();
     })
     .then(data => {
       console.log(data);
-      var resultsBox = document.getElementById("searchResult");
-      var innerBox = document.createElement("div");
-      var titleEl = document.createElement("h2");
-      var ticketLink = document.createElement("a");
-      var imageEl = document.createElement("img");
-      titleEl.innerText = data._embedded.attractions[0].name;
-      ticketLink.innerText = "Click here for upcoming events!";
-      ticketLink.href = data._embedded.attractions[0].url;
-      imageEl.src = data._embedded.attractions[0].images[0].url;
-      innerBox.appendChild(titleEl);
-      innerBox.appendChild(ticketLink);
-      innerBox.appendChild(imageEl);
-      resultsBox.appendChild(innerBox);
+      eventInformation(data)
+      // var resultsBox = document.getElementById("searchResult");
+      // var innerBox = document.createElement("div");
+      // var titleEl = document.createElement("h2");
+      // var ticketLink = document.createElement("a");
+      // var imageEl = document.createElement("img");
+      // titleEl.innerText = data._embedded.attractions[0].name;
+      // ticketLink.innerText = "Click here for upcoming events!";
+      // ticketLink.href = data._embedded.attractions[0].url;
+      // imageEl.src = data._embedded.attractions[0].images[0].url;
+      // innerBox.appendChild(titleEl);
+      // innerBox.appendChild(ticketLink);
+      // innerBox.appendChild(imageEl);
+      // resultsBox.appendChild(innerBox);
     })
   } else {
-    var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&sizse=1&genre=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
+    var api =  "https://app.ticketmaster.com/discovery/v2/events.json?&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
     fetch (api)
     .then(response => {
       return response.json();
     })
     .then(data => {
       console.log(data);
+      eventInformation(data)
     })
   }
 
 }
 
+function eventInformation(data) {
 
+  var maxEvents = 3;
+  var attractionsList = data._embedded.events;
+  var venues = data._embedded.events;
+
+  for(var i = 0; i < maxEvents; i++) {
+    console.log(attractionsList[i]);
+    console.log(attractionsList[i].name);
+    console.log(attractionsList[i].url);
+    console.log(attractionsList[i].images[0].url);
+    console.log(attractionsList[i]._embedded.venues[0].location.latitude);
+    console.log(attractionsList[i]._embedded.venues[0].location.longitude);
+    var latitude = attractionsList[i]._embedded.venues[0].location.latitude;
+    var longitude = attractionsList[i]._embedded.venues[0].location.longitude;
+
+    var resultsBox = document.getElementById("searchResult");
+    var innerBox = document.createElement("div");
+    $(innerBox).attr({"id": "main-results-container", "class": "container"});
+    var eventContainer = document.createElement("div");
+    $(eventContainer).attr({"id": "results-container", "class": "container"});
+    var titleEl = document.createElement("h2");
+    var ticketLink = document.createElement("a");
+    var imageEl = document.createElement("img");
+    titleEl.innerText = attractionsList[i].name;
+    ticketLink.innerText = "Click here for your tickets!";
+    ticketLink.href = attractionsList[i].url;
+    imageEl.src = attractionsList[i].images[0].url;
+    eventContainer.appendChild(titleEl);
+    eventContainer.appendChild( ticketLink);
+    eventContainer.appendChild(imageEl);
+    innerBox.appendChild(eventContainer);
+    resultsBox.appendChild(innerBox);
+    weatherAPI(latitude, longitude, i);
+
+  }
+
+}
 
 
 
