@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Staatliches&display=swap" rel="stylesheet">
-
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <title>Eventbrite 2.0</title>
 </head>
 
@@ -46,7 +46,7 @@
         <label for="searchby">Search by:</label>
 
       <select name="searchParams" id="searchBarParam">
-        <option value="artist">Artist</option>
+        <option value="artist">Artist or Genre</option>
         <option value="city">City</option>
         <option value="genre/event type">Genre or Type of Event</option>
       </select>
@@ -54,6 +54,20 @@
     </div>
     </div>
     <div id="searchResult">
+      <div id="main-results-container" class="container">
+        <div id="results-main">
+          <div id="results">
+  
+          </div>
+        </div>
+  
+        <div class="column container box" id="results-main">
+          <div id="results-weather">
+          </div>
+      </div>
+
+
+      </div>
       
     </div>
     
