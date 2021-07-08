@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -71,6 +72,13 @@ body {
     color: black;
     font-family: 'Permanent Marker', cursive;
 }
+
+.searchResult {
+  height: auto;
+  width: auto;
+  display: list-item;
+}
+
 
 .searchbar {
   padding: auto;
