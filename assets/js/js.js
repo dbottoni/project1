@@ -51,14 +51,13 @@ var temp = document.getElementById('tempToday');
 
 
 
-  function weatherAPI(latitude, longitude) {
+  function weatherAPI(latitude, longitude, i) {
     var apiKey = "d7c30de99a3b40fb84ca75fd821b8b25";
     var urlWeatherApi = "https://api.weatherbit.io/v2.0/forecast/daily?&key=";
     
      var lat = latitude;
      var lon = longitude;
      var index = i;
-
 
     var daysDisplay = [1]; //max # of days to display
     var units = "I";
@@ -87,26 +86,27 @@ var temp = document.getElementById('tempToday');
     })
 }
 
-function dataForContainers(data) {
-     //console.log(data)
-     var index = 0;
-     var dataArray = data.data;
-     var containerDelete = document.getElementById("results-weather");
-         containerDelete.remove();
-     //console.log(dataArray)
-     var mainContainerW = document.getElementById("results-main");
-         var eventContainer = document.createElement("div");
-         $(eventContainer).attr({"id": "results-weather", "class": "container"});
-         mainContainerW.appendChild(eventContainer);
+function deleteContainers() {
 
-     var insideCnt2 = document.getElementById("results-weather");
-         var insideC2 = document.createElement("div");
-         $(insideC2).attr({"id": "results-weather2", "class": "container"});
-         insideCnt2.appendChild(insideC2);
-     var insideCnt22 = document.getElementById("results-weather");
-         var insideC22 = document.createElement("div");
-         $(insideC22).attr({"id": "results-weather22", "class": "container"});
-         insideCnt22.appendChild(insideC22);
+  var parent = document.querySelector('#main-results-container');
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+
+}
+
+function dataForContainers(data, i) {
+     console.log(data)
+     var index = 0;
+     var eIndex = i;
+     console.log(eIndex)
+     var dataArray = data.data;
+
+     var resultsBox = document.getElementById("results"+eIndex);
+     var innerBox = document.createElement("div");
+     $(innerBox).attr({"id": "results-weather"+eIndex, "class": "container"});
+     resultsBox.appendChild(innerBox);
+
          var weatherCity = data.city_name;
          var weatherState = data.state_code;
  
@@ -122,23 +122,19 @@ function dataForContainers(data) {
 
       //creates a container for each result
       //looks for div with id results-main-w to append childs
-
       
-          var getContainerW = document.getElementById("results-weather2");
-          //creates div for each day (currently set at 5) adds attribute id and appends
-          var subContainerCreateW = document.createElement("div");
-          $(subContainerCreateW).attr({"id": "results-w-day" + index, "class": "temp-div-box2 container box"});
-          getContainerW.appendChild(subContainerCreateW);
+          var getContainerW = document.getElementById("results-weather"+eIndex);
+
           //creates <h3> to show text for current location and appends days from API
-          //var containerW = document.getElementById("results-w" + eventIndexW);
+
           var hContainer = document.createElement("h2");
-          subContainerCreateW.appendChild(hContainer);
+          getContainerW.appendChild(hContainer);
           hContainer.innerHTML = "Today: " + `${weatherIndexed.datetime}` + "</br>";
       
           //creates <p> with id to append the results from the API
           var pW = document.createElement("p");
           //$(pW).attr({"id": "event-results-w" + index});
-          subContainerCreateW.appendChild(pW);
+          getContainerW.appendChild(pW);
           var nameTxt = "Temp "  + ": "+ weathertemp + " F" + " " + "</br>" + "City: " + `${weatherCity}` + 
           ", " + `${weatherState}` + "</br>" + "Humidity: " + humidity + "%" + "</br>" +
           "</br>" + "Wind Speed: " + windSpeed;
@@ -149,13 +145,13 @@ function dataForContainers(data) {
           var pW2 = document.createElement("p");
           //$(pW2).attr({"id": "color"+index, "class":color});
           $(pW2).attr({"id": "color"+index});
-          subContainerCreateW.appendChild(pW2);
+          getContainerW.appendChild(pW2);
           var nameTxt2 = "UV Index: " + uvIndex;
           pW2.innerHTML = nameTxt2;
 
           var imgContainer = document.createElement("img");
           $(imgContainer).attr({"src":icon, "class":"icon", "alt":altImg});
-          subContainerCreateW.appendChild(imgContainer);
+          getContainerW.appendChild(imgContainer);
           //console.log(index)
           //console.log(icon)
         
@@ -388,9 +384,6 @@ function renderUserInfo(){
   if (name === null || email === null || message === null){
     return;
   }
-
-
-
 }
 
 renderUserInfo();
@@ -573,19 +566,7 @@ function getTickets () {
     .then(data => {
       console.log(data);
       eventInformation(data)
-      // var resultsBox = document.getElementById("searchResult");
-      // var innerBox = document.createElement("div");
-      // var titleEl = document.createElement("h2");
-      // var ticketLink = document.createElement("a");
-      // var imageEl = document.createElement("img");
-      // titleEl.innerText = data._embedded.attractions[0].name;
-      // ticketLink.innerText = "Click here for upcoming events!";
-      // ticketLink.href = data._embedded.attractions[0].url;
-      // imageEl.src = data._embedded.attractions[0].images[0].url;
-      // innerBox.appendChild(titleEl);
-      // innerBox.appendChild(ticketLink);
-      // innerBox.appendChild(imageEl);
-      // resultsBox.appendChild(innerBox);
+
     })
   } else {
     var api =  "https://app.ticketmaster.com/discovery/v2/events.json?&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
@@ -607,21 +588,24 @@ function eventInformation(data) {
   var attractionsList = data._embedded.events;
   var venues = data._embedded.events;
 
+  deleteContainers();
+
+
   for(var i = 0; i < maxEvents; i++) {
-    console.log(attractionsList[i]);
-    console.log(attractionsList[i].name);
-    console.log(attractionsList[i].url);
-    console.log(attractionsList[i].images[0].url);
-    console.log(attractionsList[i]._embedded.venues[0].location.latitude);
-    console.log(attractionsList[i]._embedded.venues[0].location.longitude);
+    // console.log(attractionsList[i]);
+    // console.log(attractionsList[i].name);
+    // console.log(attractionsList[i].url);
+    // console.log(attractionsList[i].images[0].url);
+    // console.log(attractionsList[i]._embedded.venues[0].location.latitude);
+    // console.log(attractionsList[i]._embedded.venues[0].location.longitude);
     var latitude = attractionsList[i]._embedded.venues[0].location.latitude;
     var longitude = attractionsList[i]._embedded.venues[0].location.longitude;
 
-    var resultsBox = document.getElementById("searchResult");
+    var resultsBox = document.getElementById("main-results-container");
     var innerBox = document.createElement("div");
-    $(innerBox).attr({"id": "main-results-container", "class": "container"});
+    $(innerBox).attr({"id": "results-div", "class": "container"});
     var eventContainer = document.createElement("div");
-    $(eventContainer).attr({"id": "results-container", "class": "container"});
+    $(eventContainer).attr({"id": "results"+i, "class": "container"});
     var titleEl = document.createElement("h2");
     var ticketLink = document.createElement("a");
     var imageEl = document.createElement("img");
@@ -634,10 +618,9 @@ function eventInformation(data) {
     eventContainer.appendChild(imageEl);
     innerBox.appendChild(eventContainer);
     resultsBox.appendChild(innerBox);
-    weatherAPI(latitude, longitude, i);
+    weatherAPI(latitude, longitude, i)
 
   }
-
 }
 
 
