@@ -19,37 +19,11 @@ if (element && element.bulmaCarousel) {
 	});
 }
 
+$("#searchResult").hide();
 
 var searchButton = document.getElementById('searchBtn');
 var inputValue = document.getElementById('searchBox');
 var temp = document.getElementById('tempToday');
-
-
-//Weather Bit API
-
-//var api = "https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=379c8609b48d4cddafc2ced675a19390";
-//var city = 
-
-
-// searchBtn.addEventListener('click',function(){
-
-//   fetch (
-//     'https://api.weatherbit.io/v2.0/forecast/daily?city='+inputValue.value+'&key=379c8609b48d4cddafc2ced675a19390'
-//     )
-//     .then(response => response.json())
-//     .then(data => {
-//       var nameValue = data['name'];
-//       console.log(data);
-
-//       //var tempValue = Math.round(((parseFloat(data['data']['max_temp'])-273.15)*1.8)+32) + '&deg';
-//       var tempValue = Math.round((parseFloat(data['data']['1']['temp']*1.8)+32)) + '&deg';
-
-//       temp.innerHTML = tempValue;
-    
-//         })
-// });
-
-
 
   function weatherAPI(latitude, longitude, i) {
     var apiKey = "d7c30de99a3b40fb84ca75fd821b8b25";
@@ -62,12 +36,8 @@ var temp = document.getElementById('tempToday');
     var daysDisplay = [1]; //max # of days to display
     var units = "I";
 
-    // var url = urlWeatherApi + apiKey + "&lat=" + lat + "&lon=" + lon + 
-    // "&days=" + daysDisplay + "&postal_code=" + zipCode + "&units=" + units;
-     var url = urlWeatherApi + apiKey + "&lat=" + lat + "&lon=" + lon + 
+    var url = urlWeatherApi + apiKey + "&lat=" + lat + "&lon=" + lon + 
      "&days=" + daysDisplay + "&units=" + units;
-    //var url =  urlWeatherApi + apiKey + "&units=" + units + "&days=" + daysDisplay +
-    //"&city=" + cityIn;
 
     fetch (url)
         .then(function(response) { //=> response.json())
@@ -154,195 +124,9 @@ function dataForContainers(data, i) {
           getContainerW.appendChild(imgContainer);
           //console.log(index)
           //console.log(icon)
+          $("#searchResult").show();
         
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Get the modal, get button to open modal, and get span element variables
 var modal = document.getElementById("myModal");
@@ -372,7 +156,6 @@ var emailInput = document.querySelector('#email');
 var messageInpt = document.querySelector('#message');
 var userNameSpan = document.querySelector('#user-name');
 var msgDiv = document.querySelector("#msg");
-
 
 
 function renderUserInfo(){
@@ -420,129 +203,11 @@ submitModalBtn.addEventListener('click', function(event) {
  });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var searchButtonEl = document.getElementById('searchBtn');
 searchButtonEl.addEventListener('click', getTickets);
 
 function getTickets () {
   var inputElement = document.getElementById('tickets');
-
-
   var dropDownEl = document.getElementById('searchBarParam');
   console.log(dropDownEl.value);
   if (dropDownEl.value === "city") {
@@ -592,18 +257,13 @@ function eventInformation(data) {
 
 
   for(var i = 0; i < maxEvents; i++) {
-    // console.log(attractionsList[i]);
-    // console.log(attractionsList[i].name);
-    // console.log(attractionsList[i].url);
-    // console.log(attractionsList[i].images[0].url);
-    // console.log(attractionsList[i]._embedded.venues[0].location.latitude);
-    // console.log(attractionsList[i]._embedded.venues[0].location.longitude);
+ 
     var latitude = attractionsList[i]._embedded.venues[0].location.latitude;
     var longitude = attractionsList[i]._embedded.venues[0].location.longitude;
 
     var resultsBox = document.getElementById("main-results-container");
     var innerBox = document.createElement("div");
-    $(innerBox).attr({"id": "results-div", "class": "container"});
+    $(innerBox).attr({"id": "results-div", "class": "container column"});
     var eventContainer = document.createElement("div");
     $(eventContainer).attr({"id": "results"+i, "class": "container"});
     var titleEl = document.createElement("h2");
@@ -619,19 +279,5 @@ function eventInformation(data) {
     innerBox.appendChild(eventContainer);
     resultsBox.appendChild(innerBox);
     weatherAPI(latitude, longitude, i)
-
   }
 }
-
-
-
-
-//   var api =  "https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&keyword=" + inputElement.value + "&apikey=X9wkE7SABLcE6COZMZEWPLuGebirGPFt"
-//   fetch (api)
-//   .then(response => {
-//     return response.json();
-//   })
-//   .then(data => {
-//     console.log(data);
-//   })
-// }
