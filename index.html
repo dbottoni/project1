@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Staatliches&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <title>NightCap Events</title>
+</head>
+
+<body>
+  <!-- Header/Nav Bar -->
+  <header>
+    <div id="nav-box" class="is-mobile">
+    <h1>NightCap Events</h1>
+      <nav>
+        <ul>
+          <li><a href="#top-events">Top Events</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+      </nav>
+  </div>
+  </header>
+
+    <!-- Search Bar/Calendar Feature/ -->
+    <div class="searchBar is-mobile">
+    <div class="field is-grouped" id="input-field">
+      <p class="control is-expanded">
+        <input class="input" id="tickets" type="text" value="" placeholder="Search For Events">
+      </p>
+      <p class="control">
+        <a class="button is-info" id="searchBtn">
+          Search
+        </a>
+      </p>
+      
+      <div>
+        <label for="searchby">Search by:</label>
+
+      <select name="searchParams" id="searchBarParam">
+        <option value="artist">Artist or Genre</option>
+        <option value="city">City</option>
+        <!-- <option value="genre/event type">Genre or Type of Event</option> -->
+      </select>
+      </div>
+    </div>
+    </div>
+
+    <div id="searchResult">
+      <div id="main-results-container">
+        <div id="results-div">
+          <div id="results">
+
+          </div>
+
+        <div id="results-weather">
+          
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Addition suggersted events -->
+    <section id="top-events">
+    <!--Start carousel-->
+    <section class="section-carousel is-mobile">
+      <div class="container is-mobile">
+        <!-- Start Carousel -->
+        <div id="carousel-infinite" class="carousel is-mobile">
+          <div class="item item-1">
+            <!-- Slide Content -->
+            <img src="./assets/images/party.jpeg" alt="concert">
+          </div>
+          <div class="item item-2">
+            <!-- Slide Content -->
+            <img src="./assets/images/city.jpeg" alt="city night">
+          </div>
+          <div class="item item-3">
+            <!-- Slide Content -->
+            <img src="./assets/images/beach.jpeg" alt="beach">
+          </div>
+          <div class="item item-4">
+            <!-- Slide Content -->
+            <img src="./assets/images/guitar.jpeg" alt="guitar">
+          </div>
+          <div class="item item-5">
+            <!-- Slide Content -->
+            <img src="./assets/images/plane.jpeg" alt="airplane">
+          </div>
+          <div class="item item-6">
+            <!-- Slide Content -->
+            <img src="./assets/images/Theme_park_AdobeStock_222547272_1.jpg" alt="carnival" title="Credit: pixel78.de - stock.adobe.com
+            Copyright: ©pixel78.de - stock.adobe.com">
+          </div>
+        </div>
+        <!-- End Carousel -->
+      </div>
+    </section>
+    </section>
+    <!-- About Us Section -->
+
+    <section id="about">
+    <div class="about-us" id="abouUs">
+      <h2>About Us</h2>
+      <p>Want to have a fun weekend? Looking for free or interesting things to do with your friends, family or different people?  Eventbrite 2.0 helps people find events locally! You can interact & socialize with people of all walks of life and have a sense of community. Eventbrite brings people together to enjoy the outdoors!</p>
+
+    </div>
+    </section>
+
+    <!-- Footer/Contact Us Section -->
+   <footer class="is-mobile"> 
+    <section id="contact-us" class="contactUs">
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns, please click the following button and complete the form to reach out to us!</p>
+    <br>
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn" class="button is-info">Questions?</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal is-mobile">
+
+      <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Contact Us</h2>
+
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Enter Your Name" id="contactName"/>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Enter Email" id="email"/>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Questions or Concerns" id="message"></textarea>
+            </div>
+          </div>
+          
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-danger is-light" id="modalSubmit">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div id="msg"></div>
+          <!-- <p>Someone from our team will be reaching out to you within 24-48hrs after submitting your form.</p>
+          <p>Thank you.</p> -->
+        </div>
+        <div class="modal-footer">
+          <h3>Nightcap Events</h3>
+        </div>
+    </div>
+
+    </div>
+    </section>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+    bulmaCarousel.attach('#carousel-infinite', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true,
+      breakpoints: 
+      [ { 
+        changePoint: 480, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        { 
+        changePoint: 640, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        }, 
+        {
+        changePoint: 780, 
+        slidesToShow: 1, 
+        slidesToScroll: 1 
+        } 
+      ]
+    });
+    </script>
+  
+
+  <script src="./assets/js/js.js"></script>
+</body>
+
+</html>
+
+<!--Image credit for carousel item #6
+Credit: pixel78.de - stock.adobe.com
+Copyright: ©pixel78.de - stock.adobe.com-->
