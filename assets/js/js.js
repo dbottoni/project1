@@ -74,7 +74,7 @@ function dataForContainers(data, i) {
 
      var resultsBox = document.getElementById("results"+eIndex);
      var innerBox = document.createElement("div");
-     $(innerBox).attr({"id": "results-weather"+eIndex, "class": "container"});
+     $(innerBox).attr({"id": "results-weather"+eIndex, "class": "container div-res-w"});
      resultsBox.appendChild(innerBox);
 
          var weatherCity = data.city_name;
@@ -97,7 +97,7 @@ function dataForContainers(data, i) {
 
           //creates <h3> to show text for current location and appends days from API
 
-          var hContainer = document.createElement("h2");
+          var hContainer = document.createElement("p");
           getContainerW.appendChild(hContainer);
           hContainer.innerHTML = "Today: " + `${weatherIndexed.datetime}` + "</br>";
       
@@ -107,17 +107,8 @@ function dataForContainers(data, i) {
           getContainerW.appendChild(pW);
           var nameTxt = "Temp "  + ": "+ weathertemp + " F" + " " + "</br>" + "City: " + `${weatherCity}` + 
           ", " + `${weatherState}` + "</br>" + "Humidity: " + humidity + "%" + "</br>" +
-          "</br>" + "Wind Speed: " + windSpeed;
+          "</br>" + "Wind Speed: " + windSpeed + "</br>" + "UV Index: " + uvIndex;
           pW.innerHTML = nameTxt; 
-
-          //uvIndexCheck(uvIndex);
-
-          var pW2 = document.createElement("p");
-          //$(pW2).attr({"id": "color"+index, "class":color});
-          $(pW2).attr({"id": "color"+index});
-          getContainerW.appendChild(pW2);
-          var nameTxt2 = "UV Index: " + uvIndex;
-          pW2.innerHTML = nameTxt2;
 
           var imgContainer = document.createElement("img");
           $(imgContainer).attr({"src":icon, "class":"icon", "alt":altImg});
@@ -263,10 +254,10 @@ function eventInformation(data) {
 
     var resultsBox = document.getElementById("main-results-container");
     var innerBox = document.createElement("div");
-    $(innerBox).attr({"id": "results-div", "class": "container column"});
+    $(innerBox).attr({"id": "results-div", "class": "container column is-one-third"});
     var eventContainer = document.createElement("div");
-    $(eventContainer).attr({"id": "results"+i, "class": "container"});
-    var titleEl = document.createElement("h2");
+    $(eventContainer).attr({"id": "results"+i, "class": "container div-res-e"});
+    var titleEl = document.createElement("p");
     var ticketLink = document.createElement("a");
     var imageEl = document.createElement("img");
     titleEl.innerText = attractionsList[i].name;
