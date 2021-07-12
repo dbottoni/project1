@@ -264,6 +264,7 @@ function eventInformation(data) {
     ticketLink.innerText = "Click here for your tickets!";
     ticketLink.href = attractionsList[i].url;
     imageEl.src = attractionsList[i].images[0].url;
+    $(imageEl).attr({"class": "event-img"});
     eventContainer.appendChild(titleEl);
     eventContainer.appendChild( ticketLink);
     eventContainer.appendChild(imageEl);

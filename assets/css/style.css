@@ -190,8 +190,6 @@ h2 {
   font-family: 'Permanent Marker', cursive;
   color: white;
 }
-
-
 #main-results-container {
   display: flex;
   flex-flow: row nowrap;
@@ -199,15 +197,17 @@ h2 {
   width: 100%;
   font-size: 3vh;
 }
-
 #results-div {
   color: white;
   /* display: flex;
   flex-flow: column nowrap; */
-
 }
-
-#results-div img {
+.icon {
+  width: 25vh;
+  height: 25vh;
+  align-self: center;
+}
+.event-img {
   width: 55vh;
   height: 25vh;
 }
@@ -217,17 +217,15 @@ h2 {
   align-items: center;
   width: 100%;
 }
-
+.div-res-e a {
+  font-size: 2.5vh
+}
 .div-res-w {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
   width: 100%;
-}
-
-.icon {
-  width: 25vh;
-  height: 25vh;
+  margin-top: 1vh;
 }
 .columns {
   margin: 0px;
@@ -285,6 +283,9 @@ h2 {
   .img-carousel {
     width: 100vh;
     height: 50vh;
+  }
+  #main-results-container {
+    font-size: 2vh;
   }
 }
 
